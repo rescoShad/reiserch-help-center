@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Inviting team members — Help Center</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f7faff;color:#020617;line-height:1.5;min-height:100vh}
+a{color:inherit;text-decoration:none}button{cursor:pointer;font:inherit;color:inherit;background:none;border:none}svg{display:block;flex-shrink:0}
+.page{min-height:100vh;background:#f7faff}.container{max-width:1500px;margin:0 auto;padding:0 24px}
+.main-grid{display:grid;grid-template-columns:1fr;gap:20px;padding:24px}
+@media(min-width:1024px){.main-grid{grid-template-columns:280px minmax(0,1fr) 250px}}
+.header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(226,232,240,.8);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.header-inner{display:flex;align-items:center;gap:20px;padding:16px 24px;max-width:1500px;margin:0 auto}
+.header-left{text-decoration:none;display:flex;align-items:flex-end;gap:12px}
+.brand-group{display:flex;align-items:center;gap:12px}.brand-sub{font-size:14px;font-weight:500;color:#475569}
+.search-bar{display:none;align-items:center;width:100%;max-width:512px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05);margin:0 auto}
+@media(min-width:768px){.search-bar{display:flex}}
+.search-icon{width:16px;height:16px;color:#94a3b8;margin-right:12px}.search-placeholder{font-size:14px;color:#64748b}
+.header-btn{display:none;padding:10px 16px;border-radius:12px;background:#2563eb;color:#fff;font-size:14px;font-weight:600;box-shadow:0 4px 6px -1px rgba(37,99,235,.2);transition:background .15s}
+.header-btn:hover{background:#1d4ed8}@media(min-width:768px){.header-btn{display:block}}
+.avatar{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#eff6ff;font-size:12px;font-weight:700;color:#1d4ed8}
+.ml-auto{margin-left:auto}
+.sidebar{display:none}@media(min-width:1024px){.sidebar{display:block}}.sidebar-sticky{position:sticky;top:96px}
+.sidebar-card{border:1px solid #e2e8f0;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.nav-group{border-bottom:1px solid #f1f5f9;padding:16px;display:flex;align-items:center;justify-content:space-between}
+.nav-label{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.05em;color:#475569}
+.nav-icon{width:16px;height:16px;color:#2563eb}.nav-arrow{color:#94a3b8;font-size:12px}
+.nav-links{margin-top:16px;border-left:1px solid #e2e8f0;padding-left:12px;display:flex;flex-direction:column;gap:4px}
+.nav-link{display:block;width:100%;padding:8px 12px;border-radius:12px;text-align:left;font-size:14px;color:#475569;transition:background .15s}
+.nav-link:hover{background:#f8fafc}.nav-link.active{background:#eff6ff;font-weight:600;color:#1d4ed8}
+.support-card{margin:16px;padding:16px;border:1px solid #e2e8f0;border-radius:16px;background:#f8fafc}
+.support-card h3{font-size:14px;font-weight:700;color:#020617;margin-bottom:4px}
+.support-card p{font-size:14px;line-height:1.5;color:#475569}
+.support-btn{width:100%;margin-top:16px;padding:8px 16px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s}
+.support-btn:hover{background:#eff6ff}
+.article{min-width:0;border:1px solid #e2e8f0;border-radius:24px;background:#fff;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+@media(min-width:768px){.article{padding:32px}}
+.breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:20px;font-size:14px}
+.breadcrumb-link{font-weight:500;color:#1d4ed8}.breadcrumb-current{color:#64748b}.chevron-icon{width:16px;height:16px;color:#94a3b8}
+.hero{border:1px solid #bfdbfe;border-radius:24px;background:linear-gradient(135deg,#eff6ff,#fff,#eff6ff);padding:28px;overflow:hidden}
+@media(min-width:768px){.hero{padding:32px}}
+.hero-grid{display:grid;gap:32px}@media(min-width:768px){.hero-grid{grid-template-columns:1fr 320px;align-items:center}}
+.hero-badge{display:inline-flex;padding:4px 12px;border-radius:999px;background:#dbeafe;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1d4ed8}
+.hero-title{max-width:42rem;margin-top:20px;font-size:36px;font-weight:700;letter-spacing:-.025em;color:#020617}
+@media(min-width:768px){.hero-title{font-size:48px}}
+.hero-desc{max-width:42rem;margin-top:16px;font-size:16px;line-height:1.75;color:#475569}
+.hero-meta{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;color:#64748b}
+.clock-icon{width:16px;height:16px}
+.hero-card{display:none;position:relative;height:224px;border-radius:24px;background:#fff;padding:20px;box-shadow:0 10px 15px -3px rgba(37,99,235,.25)}
+@media(min-width:768px){.hero-card{display:block}}
+.hero-card-blob1{position:absolute;top:-16px;right:-16px;width:80px;height:80px;border-radius:50%;background:rgba(37,99,235,.1)}
+.hero-card-blob2{position:absolute;bottom:-20px;left:40px;width:96px;height:96px;border-radius:50%;background:rgba(37,99,235,.15)}
+.hero-card-inner{position:relative;margin:16px auto 0;display:flex;flex-direction:column;width:224px;height:160px;border:1px solid #bfdbfe;border-radius:24px;background:#fff;padding:20px;transform:rotate(3deg);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}
+.hero-card-bar{width:80px;height:12px;border-radius:999px;background:#dbeafe;margin-bottom:20px}
+.hero-card-icon-wrap{margin:0 auto;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#dbeafe;color:#1d4ed8}
+.hero-card-icon-wrap svg{width:28px;height:28px}
+.hero-card-footer{border:1px solid #e2e8f0;border-radius:16px;padding:12px;margin-top:20px}
+.hero-card-footer-bar1{width:112px;height:8px;border-radius:999px;background:#e2e8f0}
+.hero-card-footer-bar2{width:80px;height:8px;border-radius:999px;background:#bfdbfe;margin-top:8px}
+.section{margin-top:32px}.section-title{font-size:20px;font-weight:700;letter-spacing:-.025em;color:#020617;margin-bottom:16px}
+.card{border:1px solid #e2e8f0;border-radius:16px;padding:20px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.card+.card{margin-top:12px}
+.card-title{font-size:16px;font-weight:700;color:#020617;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.card-body{font-size:14px;line-height:1.6;color:#475569}
+.card-body p{margin-bottom:8px}.card-body p:last-child{margin-bottom:0}
+.card-body ul{list-style:none;margin-top:8px}
+.card-body ul li{padding:6px 0;font-size:14px;color:#475569;line-height:1.5}
+.card-body ul li::before{content:"• ";color:#2563eb;font-weight:700}
+.card-body ul li strong{color:#020617}
+.related-section{margin-top:32px}.related-title{font-size:20px;font-weight:700;letter-spacing:-.025em;color:#020617}
+.related-grid{display:grid;gap:16px;margin-top:16px}
+@media(min-width:768px){.related-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1280px){.related-grid{grid-template-columns:repeat(4,1fr)}}
+.related-card{padding:16px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;text-align:left;transition:border-color .15s,background .15s}
+.related-card:hover{border-color:#bfdbfe;background:rgba(239,246,255,.4)}
+.related-icon{width:24px;height:24px;color:#1d4ed8}
+.related-card-title{margin-top:16px;font-size:14px;font-weight:700;color:#020617}
+.related-card-body{margin-top:4px;font-size:12px;line-height:1.25;color:#475569}
+.related-card-link{margin-top:16px;font-size:14px;font-weight:600;color:#1d4ed8}
+.feedback{margin-top:32px;display:flex;flex-direction:column;gap:16px;padding:20px;border:1px solid #e2e8f0;border-radius:16px;background:#f8fafc}
+@media(min-width:768px){.feedback{flex-direction:row;align-items:center;justify-content:space-between}}
+.feedback-title{font-weight:700;color:#020617}.feedback-desc{margin-top:4px;font-size:14px;color:#475569}
+.feedback-btns{display:flex;gap:12px}
+.fb-btn{display:flex;align-items:center;gap:8px;padding:8px 20px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s}
+.fb-btn:hover{background:#eff6ff}.fb-btn svg{width:16px;height:16px}
+.right-sidebar{display:none}@media(min-width:1280px){.right-sidebar{display:block}}
+.right-sticky{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px}
+.toc-card{padding:20px;border:1px solid #e2e8f0;border-radius:24px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.toc-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#334155}
+.toc-list{margin-top:20px;border-left:1px solid #e2e8f0;padding-left:16px;display:flex;flex-direction:column;gap:16px}
+.toc-item{display:block;text-align:left;font-size:14px;color:#475569;transition:color .15s}
+.toc-item:hover{color:#1d4ed8}.toc-item.active{font-weight:600;color:#1d4ed8}
+.promo-card{padding:20px;border:1px solid #e2e8f0;border-radius:24px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.promo-icon-wrap{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#eff6ff;color:#1d4ed8}
+.promo-icon-wrap svg{width:20px;height:20px}
+.promo-title{margin-top:20px;font-weight:700;color:#020617}.promo-desc{margin-top:8px;font-size:14px;line-height:1.5;color:#475569}
+.promo-btn{width:100%;margin-top:20px;padding:8px 16px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s;display:block;text-align:center}
+.promo-btn:hover{background:#eff6ff}
+</style></head>
+<body>
+<div class="page">
+<header class="header">
+<div class="header-inner">
+<a href="/" class="header-left"><img src="/logo.png" alt="ReiSearch" style="height:40px;width:auto;display:block"><div class="brand-group"><span class="brand-sub">Help Center</span></div></a>
+<div class="search-bar"><svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg><span class="search-placeholder">Search help articles...</span></div>
+<a href="https://reisearch.com" class="header-btn ml-auto">Visit ReiSearch ↗</a><div class="avatar">RS</div></div></header>
+
+<main class="main-grid container">
+<aside class="sidebar"><div class="sidebar-sticky"><div class="sidebar-card">
+<nav aria-label="Help navigation">
+<div class="nav-group"><button class="nav-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg>GET STARTED</button><span class="nav-arrow">⌄</span></div>
+<div style="padding:0 16px 16px;border-bottom:1px solid #f1f5f9"><div class="nav-links">
+<a href="/articles/getting-started/01-creating-account" class="nav-link">Creating your ReiSearch account</a>
+<a href="/articles/getting-started/02-dashboard-overview" class="nav-link">Understanding your dashboard</a>
+<a href="/articles/getting-started/03-completing-profile" class="nav-link">Completing your profile</a>
+<a href="/articles/getting-started/04-first-property" class="nav-link">Your first property</a>
+<a href="/articles/getting-started/05-how-to-run-comps" class="nav-link">How to run comps</a>
+<a href="/articles/getting-started/06-first-presentation" class="nav-link">Your first presentation</a>
+<a href="/articles/getting-started/07-inviting-team" class="nav-link active">Inviting team members</a>
+</div></div>
+<div class="nav-group"><button class="nav-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>ACCOUNT & PROFILE</button><span class="nav-arrow">⌄</span></div>
+<div class="nav-group"><button class="nav-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/></svg>PROPERTIES</button><span class="nav-arrow">⌄</span></div>
+<div class="nav-group"><button class="nav-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/></svg>COMPS & UNDERWRITING</button><span class="nav-arrow">⌄</span></div>
+<div class="nav-group"><button class="nav-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.05.05a2 2 0 1 1-2.83 2.83l-.05-.05A1.8 1.8 0 0 0 15 19.4a1.8 1.8 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.08a1.8 1.8 0 0 0-1-1.6 1.8 1.8 0 0 0-1.98.36l-.05.05a2 2 0 1 1-2.83-2.83l.05-.05A1.8 1.8 0 0 0 4.6 15a1.8 1.8 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.08a1.8 1.8 0 0 0 1.6-1 1.8 1.8 0 0 0-.36-1.98l-.05-.05a2 2 0 1 1 2.83-2.83l.05.05A1.8 1.8 0 0 0 9 4.6a1.8 1.8 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.08a1.8 1.8 0 0 0 1 1.6 1.8 1.8 0 0 0 1.98-.36l-.05-.05a2 2 0 1 1 2.83 2.83l-.05.05A1.8 1.8 0 0 0 19.4 9c.1.36.3.7.6 1H21a2 2 0 1 1 0 4h-.08a1.8 1.8 0 0 0-1.52 1Z"/></svg>SETTINGS</button><span class="nav-arrow">⌄</span></div>
+<div class="nav-group"><button class="nav-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4.7 1.8c-1.4 1.1-2.2 1.5-2.2 3.2"/><path d="M12 17h.01"/></svg>SUPPORT</button><span class="nav-arrow">⌄</span></div>
+</nav>
+<div class="support-card"><h3>Still need help?</h3><p>Our support team is here for you.</p><button class="support-btn">Contact Support</button></div>
+</div></div></aside>
+
+<article class="article">
+<div class="breadcrumbs"><a href="/" class="breadcrumb-link">Help Center</a><svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg><span class="breadcrumb-current">Inviting team members</span></div>
+
+<section class="hero"><div class="hero-grid"><div>
+<span class="hero-badge">Getting Started</span>
+<h1 class="hero-title">Inviting team members</h1>
+<p class="hero-desc">Add team members to ReiSearch so you can collaborate on properties and deals.</p>
+<div class="hero-meta"><svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>4 min read</span></div>
+</div>
+<div class="hero-card"><div class="hero-card-blob1"></div><div class="hero-card-blob2"></div><div class="hero-card-inner"><div class="hero-card-bar"></div><div class="hero-card-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><div class="hero-card-footer"><div class="hero-card-footer-bar1"></div><div class="hero-card-footer-bar2"></div></div></div></div>
+</div></section>
+
+<div class="section"><p style="font-size:16px;line-height:1.75;color:#475569">ReiSearch lets you work with team members on the same properties. You can invite people to your account, set their permissions, and share properties for collaboration.</p></div>
+
+<section class="section"><h2 class="section-title">Inviting someone to ReiSearch</h2>
+<div class="card"><div class="card-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Ways to invite</div><div class="card-body">
+<p>Before you can collaborate with someone, they need a ReiSearch account. Three ways to invite them:</p>
+<ul><li><strong>From the Directory</strong> — Open the Directory from the sidebar. Click "Invite to ReiSearch" in the upper right. Enter the person's name and email. An invitation is sent with a link to create an account.</li>
+<li><strong>From your Network</strong> — Go to Network &gt; Invitation Tracker. Click "Send Invitation." Enter the email and an optional message.</li>
+<li><strong>From Google Contacts</strong> — If Google Contacts is connected through the App Center, your imported contacts appear in the Dashboard sidebar. Click "Invite" next to any contact.</li></ul>
+<p>The invitation email includes a sign-up link. Once they create an account and verify their email, they appear in your network as a connection.</p>
+</div></div></section>
+
+<section class="section"><h2 class="section-title">Adding team members</h2>
+<div class="card"><div class="card-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9 3v18"/></svg>Settings &gt; Teams</div><div class="card-body">
+<p>Go to Settings &gt; Teams. Create a team or select an existing one. Click "Add Member" and enter the person's email address. They receive a notification that they have been added to your team. Team members can see properties shared with the team and communicate in property threads.</p>
+</div></div></section>
+
+<section class="section"><h2 class="section-title">Permissions levels</h2>
+<div class="card"><div class="card-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 3 19 6v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Permission levels</div><div class="card-body">
+<ul><li><strong>View</strong> — Can see shared properties and documents. Cannot edit or share further.</li>
+<li><strong>Edit</strong> — Can update property details, add documents, and run comps on shared properties.</li>
+<li><strong>Admin</strong> — Can edit properties, share with others, and manage team membership.</li></ul>
+<p>Set permissions when you add a member. You can change them later from the team management screen.</p>
+</div></div></section>
+
+<section class="section"><h2 class="section-title">Sharing properties with your team</h2>
+<div class="card"><div class="card-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/></svg>Property sharing</div><div class="card-body">
+<p>Open the property from Drafts or Shared. Click "Share" or the share icon. Select your team from the recipient list — you can also share with individual team members. Choose the permission level for this sharing action. Shared properties appear in the team members' Shared tab and in property threads.</p>
+</div></div></section>
+
+<section class="section"><h2 class="section-title">Managing team access</h2>
+<div class="card"><div class="card-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>Access management</div><div class="card-body">
+<ul><li><strong>Remove a team member</strong> — Go to Settings &gt; Teams. Find the member and click "Remove." They lose access to all team-shared properties.</li>
+<li><strong>Change permissions</strong> — Adjust at any time from the team management screen. Changes take effect immediately.</li>
+<li><strong>Transfer ownership</strong> — Team ownership is tied to the account that created the team. Contact Support if you need to transfer ownership.</li></ul>
+</div></div></section>
+
+<section class="section"><h2 class="section-title">Team communication</h2>
+<div class="card"><div class="card-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Property threads</div><div class="card-body">
+<p>Once a property is shared, team members can discuss it in the property's thread. Open the property and go to the Threads section. All team members with access to the property can see and reply to messages there.</p>
+</div></div></section>
+
+<section class="related-section"><h2 class="related-title">Related articles</h2><div class="related-grid">
+<div class="related-card"><svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><h3 class="related-card-title">Connecting with people</h3><p class="related-card-body">Build your network and find partners on ReiSearch.</p><a href="#" class="related-card-link">Read article →</a></div>
+<div class="related-card"><svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><h3 class="related-card-title">Property threads</h3><p class="related-card-body">Discuss deals and collaborate in property threads.</p><a href="#" class="related-card-link">Read article →</a></div>
+<div class="related-card"><svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/></svg><h3 class="related-card-title">Sharing a property</h3><p class="related-card-body">Learn how to share properties with your team.</p><a href="#" class="related-card-link">Read article →</a></div>
+<div class="related-card"><svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.05.05a2 2 0 1 1-2.83 2.83l-.05-.05A1.8 1.8 0 0 0 15 19.4a1.8 1.8 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.08a1.8 1.8 0 0 0-1-1.6 1.8 1.8 0 0 0-1.98.36l-.05.05a2 2 0 1 1-2.83-2.83l.05-.05A1.8 1.8 0 0 0 4.6 15a1.8 1.8 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.08a1.8 1.8 0 0 0 1.6-1 1.8 1.8 0 0 0-.36-1.98l-.05-.05a2 2 0 1 1 2.83-2.83l.05.05A1.8 1.8 0 0 0 9 4.6a1.8 1.8 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.08a1.8 1.8 0 0 0 1 1.6 1.8 1.8 0 0 0 1.98-.36l.05-.05a2 2 0 1 1 2.83 2.83l-.05.05A1.8 1.8 0 0 0 19.4 9c.1.36.3.7.6 1H21a2 2 0 1 1 0 4h-.08a1.8 1.8 0 0 0-1.52 1Z"/></svg><h3 class="related-card-title">Teams overview</h3><p class="related-card-body">Manage teams and permissions in Settings.</p><a href="#" class="related-card-link">Read article →</a></div>
+</div></section>
+
+<section class="feedback"><div><h3 class="feedback-title">Was this helpful?</h3><p class="feedback-desc">Your feedback helps us improve our help center.</p></div><div class="feedback-btns"><button class="fb-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 21H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3"/><path d="M10 11V6a3 3 0 0 1 3-3l1 5h4a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7v-8h3Z"/></svg> Yes</button><button class="fb-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h3"/><path d="M10 13v5a3 3 0 0 0 3 3l1-5h4a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7v8h3Z"/></svg> No</button></div></section>
+</article>
+
+<aside class="right-sidebar"><div class="right-sticky">
+<div class="toc-card"><h2 class="toc-label">On this page</h2><nav class="toc-list" aria-label="On this page">
+<span class="toc-item active">Inviting someone</span>
+<span class="toc-item">Adding team members</span>
+<span class="toc-item">Permissions levels</span>
+<span class="toc-item">Sharing properties</span>
+<span class="toc-item">Managing access</span>
+<span class="toc-item">Team communication</span>
+</nav></div>
+<div class="promo-card"><div class="promo-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg></div><h3 class="promo-title">New to ReiSearch?</h3><p class="promo-desc">Explore the platform and see how ReiSearch can power your next deal.</p><a href="https://reisearch.com" class="promo-btn">Visit ReiSearch ↗</a></div>
+</div></aside>
+</main>
+</div>
+</body>
+</html>
