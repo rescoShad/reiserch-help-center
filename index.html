@@ -66,7 +66,14 @@ img{max-width:100%;height:auto}
 .cat-grid{display:grid;gap:16px;grid-template-columns:1fr}
 @media(min-width:768px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1280px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
-.cat-card{display:flex;align-items:center;gap:20px;padding:20px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.cat-card{display:block;padding:0;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);cursor:pointer;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.cat-card:hover{border-color:#bfdbfe;box-shadow:0 10px 15px -3px rgba(219,234,254,.6)}
+.cat-header{display:flex;align-items:center;gap:20px;padding:20px;cursor:pointer;user-select:none}
+.cat-expand{display:none;border-top:1px solid #e2e8f0;padding:12px 20px 20px;background:#fafcff}
+.cat-expand.open{display:block}
+.cat-expand a{display:block;padding:8px 12px;border-radius:10px;font-size:14px;color:#475569;text-decoration:none;transition:background .15s}
+.cat-expand a:hover{background:#eff6ff;color:#1d4ed8}
+.cat-expand a.active{background:#eff6ff;font-weight:600;color:#1d4ed8}
 .cat-card:hover{border-color:#bfdbfe;box-shadow:0 10px 15px -3px rgba(219,234,254,.6);transform:translateY(-2px)}
 .cat-icon-wrap{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#eff6ff;color:#1d4ed8;flex-shrink:0;transition:background .2s,color .2s}
 .cat-card:hover .cat-icon-wrap{background:#2563eb;color:#fff}
@@ -189,27 +196,44 @@ img{max-width:100%;height:auto}
 </div>
 <div class="cat-grid">
 
-<a href="/articles/getting-started/01-creating-account" class="cat-card">
-<div class="cat-icon-wrap">
+<div class="cat-card" onclick="toggleCat('cat-gs')">
+<div class="cat-header"><div class="cat-icon-wrap">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg>
 </div>
 <div class="cat-info">
 <h3>Getting Started</h3>
 <p class="cat-desc">New to ReiSearch? Start here.</p>
 <div class="cat-count">7 articles</div>
+</div></div>
+<div id="cat-gs" class="cat-expand"><a href="/articles/getting-started/01-creating-account">Creating your ReiSearch account</a>
+<a href="/articles/getting-started/02-dashboard-overview">Understanding your dashboard</a>
+<a href="/articles/getting-started/03-completing-profile">Completing your profile</a>
+<a href="/articles/getting-started/04-first-property">Your first property</a>
+<a href="/articles/getting-started/05-how-to-run-comps">How to run comps</a>
+<a href="/articles/getting-started/06-first-presentation">Your first presentation</a>
+<a href="/articles/getting-started/07-inviting-team">Inviting team members</a>
 </div>
-</a>
+</div>
 
-<a href="/articles/getting-started/01-creating-account" class="cat-card">
-<div class="cat-icon-wrap">
+<div class="cat-card" onclick="toggleCat('cat-ts')">
+<div class="cat-header"><div class="cat-icon-wrap">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L3 18l3 3 6.1-6.1a4 4 0 0 0 5.6-5.6"/><path d="M15 5l4 4"/><path d="M18 2l4 4"/></svg>
 </div>
 <div class="cat-info">
 <h3>Troubleshooting</h3>
 <p class="cat-desc">Fix common issues and errors.</p>
 <div class="cat-count">8 articles</div>
+</div></div>
+<div id="cat-ts" class="cat-expand"><a href="/articles/troubleshooting/01-cannot-run-a-comp">Cannot run a comp</a>
+<a href="/articles/troubleshooting/02-out-of-tokens">Out of tokens</a>
+<a href="/articles/troubleshooting/03-presentation-looks-wrong">Presentation looks wrong</a>
+<a href="/articles/troubleshooting/04-buy-box-no-matches">Buy box no matches</a>
+<a href="/articles/troubleshooting/05-cannot-find-property">Cannot find a property</a>
+<a href="/articles/troubleshooting/06-login-password-mfa">Login, password, MFA</a>
+<a href="/articles/troubleshooting/07-export-failed-partial-data">Export failed</a>
+<a href="/articles/troubleshooting/08-contacting-support">Contacting support</a>
 </div>
-</a>
+</div>
 
 <a href="#" class="cat-card">
 <div class="cat-icon-wrap">
@@ -445,5 +469,15 @@ img{max-width:100%;height:auto}
 </div>
 </div>
 
+<script>
+function toggleCat(id) {
+  var el = document.getElementById(id);
+  var open = el.classList.contains('open');
+  // Close all
+  var all = document.querySelectorAll('.cat-expand');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('open');
+  if (!open) el.classList.add('open');
+}
+</script>
 </body>
 </html>
