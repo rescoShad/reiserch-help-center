@@ -28,9 +28,9 @@ Follow these simple steps to create your ReiSearch account and start analyzing r
 
 ## Step-by-step guide
 
-### 1. Go to app.reisearch.com
+### 1. Go to reisearch.com
 
-Head to app.reisearch.com and click Get Started to begin setting up your account.
+Head to reisearch.com and click Get Started to begin setting up your account.
 
 ### 2. Enter your details
 
