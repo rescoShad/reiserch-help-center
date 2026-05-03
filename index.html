@@ -469,15 +469,13 @@ img{max-width:100%;height:auto}
 </div>
 </div>
 
-<script>
-function toggleCat(id) {
+<!-- collapsed removed -->
   var el = document.getElementById(id);
   var open = el.classList.contains('open');
   // Close all
   var all = document.querySelectorAll('.cat-expand');
   for (var i = 0; i < all.length; i++) all[i].classList.remove('open');
   if (!open) el.classList.add('open');
-}
-</script>
+
 </body>
 </html>
