@@ -78,4 +78,4 @@ Matchmaking is based on your public information and activity. Private data (draf
 - Public Profile
 - ReiDirectory
 
-**Status:** Draft v0.1
+**Status:** Published

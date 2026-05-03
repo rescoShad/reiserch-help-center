@@ -72,4 +72,4 @@ View your auto-send history from the Presentations page. See which properties tr
 - How Buy Box Matching Works
 - Sharing a Presentation
 
-**Status:** Draft v0.1
+**Status:** Published

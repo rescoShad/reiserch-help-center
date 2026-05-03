@@ -71,4 +71,4 @@ ReiSearch accesses only your contact names and email addresses. No other Google 
 - Invitation Tracker
 - Managing Integrations
 
-**Status:** Draft v0.1
+**Status:** Published

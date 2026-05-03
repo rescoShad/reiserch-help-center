@@ -66,7 +66,7 @@ Applied codes appear in your Billing history. You can see what was applied, when
 - Earning Tokens Through Actions
 - Token Costs Reference
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The "SubTo" partner code for 250 free presentations was mentioned in the ideas-feedback doc. I included it as an example. Confirm if it is live or still planned.

@@ -68,7 +68,7 @@ Completed reports appear in the property's Documents section. You can also find 
 - Reading a Comp Result
 - Buying Token Bundles
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The session recap confirmed the $99 price and 24-72 hour turnaround. If these change, update accordingly.

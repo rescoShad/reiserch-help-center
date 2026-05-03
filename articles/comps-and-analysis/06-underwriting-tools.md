@@ -88,7 +88,7 @@ Save each scenario with a custom label so you can compare them later.
 - Reading a Comp Result
 - ReiSearch Reports
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The platform doc mentions "Auto calculators" under underwriting tools in the ideas section. Specific calculator layout and field availability may vary. Confirm which calculators are live.

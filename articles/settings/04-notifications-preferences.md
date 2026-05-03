@@ -89,4 +89,4 @@ The bell icon shows an unread count. The count displays up to 99+. Clear notific
 - Dashboard Overview
 - Buy Box Notifications
 
-**Status:** Draft v0.1
+**Status:** Published

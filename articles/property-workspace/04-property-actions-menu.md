@@ -77,4 +77,4 @@ Some actions are only available at certain statuses:
 - Sharing a Property
 - Understanding Property Statuses
 
-**Status:** Draft v0.1
+**Status:** Published

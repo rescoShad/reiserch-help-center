@@ -74,4 +74,4 @@ Once saved, open the property detail page to:
 - Understanding Property Statuses
 - Sharing a Property
 
-**Status:** Draft v0.1
+**Status:** Published

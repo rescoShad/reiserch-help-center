@@ -62,7 +62,7 @@ Multi-agent comps cost [MULTI_AGENT_COMP_COST] tokens per run. This covers all s
 - Underwriting Tools
 - Repair Estimator
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - Specific agent names for each exit strategy were assumed from positioning per the session recap. Actual available strategies may differ. Confirm which are live in production.

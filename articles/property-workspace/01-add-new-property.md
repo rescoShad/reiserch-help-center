@@ -62,4 +62,4 @@ Click "Save Draft." The property appears in your Properties list under the Draft
 - Sharing a Property
 - Publishing to Marketplace
 
-**Status:** Draft v0.1
+**Status:** Published

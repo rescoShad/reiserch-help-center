@@ -72,4 +72,4 @@ Every property you are serious about should be underwritten before you make an o
 - Comparing Exits and Making a Decision
 - Adjusting Comps Filters
 
-**Status:** Draft v0.1
+**Status:** Published

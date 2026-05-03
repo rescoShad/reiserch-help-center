@@ -60,4 +60,4 @@ The global header search bar searches across people, properties, cities, and ZIP
 - Publishing to Marketplace
 - Folders Overview
 
-**Status:** Draft v0.1
+**Status:** Published

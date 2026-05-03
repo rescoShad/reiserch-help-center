@@ -74,4 +74,4 @@ Your own activity appears in your network's feeds based on your privacy settings
 - Dashboard Overview
 - Public Profile
 
-**Status:** Draft v0.1
+**Status:** Published

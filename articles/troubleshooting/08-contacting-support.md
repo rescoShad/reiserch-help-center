@@ -61,4 +61,4 @@ Not every contact is a problem. Use the Feedback button in the Dashboard sidebar
 - Frequently Asked Questions
 - Support Center Overview
 
-**Status:** Draft v0.1
+**Status:** Published

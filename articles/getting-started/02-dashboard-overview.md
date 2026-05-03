@@ -88,4 +88,4 @@ Found in the sidebar footer. Use it to submit product feedback or report issues.
 - Your First Property
 - How to Run Comps
 
-**Status:** Draft v0.1
+**Status:** Published

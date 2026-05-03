@@ -69,4 +69,4 @@ Once uploaded, photos appear in these places:
 - How to Publish a Property to the Marketplace
 - Generating a Presentation
 
-**Status:** Draft v0.1
+**Status:** Published

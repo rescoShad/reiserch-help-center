@@ -56,4 +56,4 @@ Click "Save." The buy box appears on your public profile, in the Buyers section 
 - Smart Buyers Lists
 - Buy Box Auto-Send
 
-**Status:** Draft v0.1
+**Status:** Published

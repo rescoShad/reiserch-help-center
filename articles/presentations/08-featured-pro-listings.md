@@ -76,7 +76,7 @@ Pricing is per listing, per publishing period. Featured and Pro fees are non-ref
 - How to Browse the Marketplace
 - Premier Plus and Plans
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - Pricing is marked as placeholder ([FEATURED_LISTING_PRICE], [PRO_LISTING_PRICE]). The session recap confirmed these as pending determination. Replace with actual values when decided.

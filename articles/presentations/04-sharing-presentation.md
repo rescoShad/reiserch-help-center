@@ -58,4 +58,4 @@ View who has received, opened, or downloaded your presentation from the presenta
 - Buy Box Auto-Send
 - Presentation Templates
 
-**Status:** Draft v0.1
+**Status:** Published

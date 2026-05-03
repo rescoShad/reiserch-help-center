@@ -94,7 +94,7 @@ You can downgrade at the end of your billing cycle. Downgrading mid-cycle is not
 - Earning Tokens Through Actions
 - Promo and Discount Codes
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - Plan tier names and pricing between Free and Premier Plus were assumed per the session recap. Updated pricing to match the ideas-and-feedback doc structure (Core $50/mo, Scale $200/mo, Team $500/mo). Confirm against live billing.

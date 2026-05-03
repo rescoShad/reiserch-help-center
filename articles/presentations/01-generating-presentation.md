@@ -61,4 +61,4 @@ Generating a presentation costs [PRESENTATION_COST] tokens. Free plan users can 
 - Sharing a Presentation
 - Smart Buyer Lists
 
-**Status:** Draft v0.1
+**Status:** Published

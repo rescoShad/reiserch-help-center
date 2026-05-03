@@ -58,3 +58,5 @@ Your Dashboard loads with your profile card, token wallet, account setup checkli
 ## Need more help?
 
 Contact ReiSearch Support from the Support page in the sidebar or email support@reisearch.com. Include the email address on your account and a description of what you need help with.
+
+**Status:** Published

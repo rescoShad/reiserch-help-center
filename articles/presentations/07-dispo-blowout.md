@@ -77,7 +77,7 @@ Dispo Blowout events cost [DISPO_BLOWOUT_COST] tokens. This covers the multi-rec
 - Smart Buyer Lists
 - Understanding Property Statuses
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The session recap noted that the Dispo Blowout structure was built around "one bullet" in the strategy doc. Verify actual product behavior matches this description.

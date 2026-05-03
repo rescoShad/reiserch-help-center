@@ -60,4 +60,4 @@ Go to Network and find the user in your connections list. Click the menu icon an
 - Invitation Tracker
 - ReiDirectory
 
-**Status:** Draft v0.1
+**Status:** Published

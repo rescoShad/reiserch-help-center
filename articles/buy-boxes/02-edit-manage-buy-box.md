@@ -66,4 +66,4 @@ Each buy box has a label field. Give them descriptive names like "Phoenix Flips"
 - Smart Buyers Lists
 - Buy Box Auto-Send
 
-**Status:** Draft v0.1
+**Status:** Published

@@ -83,4 +83,4 @@ Even with notifications off, you can see your active matches by:
 - Notifications Preferences
 - How to Edit and Manage Your Buy Box
 
-**Status:** Draft v0.1
+**Status:** Published

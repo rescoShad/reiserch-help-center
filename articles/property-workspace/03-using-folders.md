@@ -64,4 +64,4 @@ Status tabs (Drafts, Shared, Published, Offers) are system-defined. Folders are 
 - Sharing a Property
 - Publishing to Marketplace
 
-**Status:** Draft v0.1
+**Status:** Published

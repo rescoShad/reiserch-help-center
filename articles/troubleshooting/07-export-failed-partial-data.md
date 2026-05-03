@@ -61,4 +61,4 @@ Download the file on a different device or network to isolate the cause. If the 
 - Generating a Presentation
 - Understanding Tokens
 
-**Status:** Draft v0.1
+**Status:** Published

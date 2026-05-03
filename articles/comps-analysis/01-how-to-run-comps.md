@@ -64,4 +64,4 @@ Each comp run costs [BASIC_COMP_COST] tokens. Your balance is displayed in the T
 - Saving and Exporting Comps
 - What Is Underwriting?
 
-**Status:** Draft v0.1
+**Status:** Published

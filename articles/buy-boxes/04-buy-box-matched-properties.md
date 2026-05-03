@@ -75,4 +75,4 @@ See "How Buy Box Matching Works" for more on refining criteria.
 - How to Edit and Manage Your Buy Box
 - Buy Box Auto-Send
 
-**Status:** Draft v0.1
+**Status:** Published

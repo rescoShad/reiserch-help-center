@@ -71,4 +71,4 @@ Reactivating the buy box resumes matching.
 - Smart Buyers Lists
 - Buy Box Auto-Send
 
-**Status:** Draft v0.1
+**Status:** Published

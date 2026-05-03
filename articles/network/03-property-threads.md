@@ -65,7 +65,7 @@ Notification preferences are controlled in Settings > Notifications.
 - Notifications Preferences
 - Inviting Your Team
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - [THREAD_PARTICIPANT_CAP] — The session recap assumed 25. Replace with the actual cap value.

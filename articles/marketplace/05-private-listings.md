@@ -72,4 +72,4 @@ If you decide to open a privately shared property to the full Marketplace:
 - How to Browse the Marketplace
 - Managing Your Marketplace Listings
 
-**Status:** Draft v0.1
+**Status:** Published

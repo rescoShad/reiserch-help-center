@@ -76,7 +76,7 @@ Check the individual action for any limits displayed before you complete it.
 - Premier Plus and Plans
 - Promo and Discount Codes
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - All reward amounts ([PHOTO_TOKEN_REWARD], etc.) are placeholders. The session recap and product doc did not specify exact token reward values for these actions. Replace with actual amounts.

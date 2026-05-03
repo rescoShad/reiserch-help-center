@@ -54,4 +54,4 @@ Use the export buttons to save the table as PDF or CSV. When you save comps to a
 - How to Run Comps
 - Demographics and Market Data
 
-**Status:** Draft v0.1
+**Status:** Published

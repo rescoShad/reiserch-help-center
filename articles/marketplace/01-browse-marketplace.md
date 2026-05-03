@@ -55,4 +55,4 @@ The filter bar at the top of the page lets you narrow by location, deal type, pr
 - Understanding Property Statuses
 - Presentations and Dispo
 
-**Status:** Draft v0.1
+**Status:** Published

@@ -60,7 +60,7 @@ Token bundles are non-refundable once purchased. Tokens are deducted as used and
 - Earning Tokens Through Actions
 - Promo and Discount Codes
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - Bundle names (Starter, Power User, Pro) and all pricing are placeholders. The session recap noted these as assumed values. Replace with actual product names and prices.

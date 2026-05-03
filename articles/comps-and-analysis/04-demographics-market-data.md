@@ -52,4 +52,4 @@ Demographic data refreshes periodically, not in real time. Annual updates are ty
 - ReiSearch Reports
 - Underwriting Tools
 
-**Status:** Draft v0.1
+**Status:** Published

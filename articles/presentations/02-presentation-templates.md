@@ -73,4 +73,4 @@ Scale plan users can save custom templates with preferred layouts, color schemes
 - Sharing a Presentation
 - Smart Buyer Lists
 
-**Status:** Draft v0.1
+**Status:** Published

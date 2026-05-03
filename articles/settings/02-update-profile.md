@@ -71,4 +71,4 @@ Your Dashboard shows a Profile Progress percentage. This updates as you complete
 - Completing Your Profile (Getting Started)
 - Expertise Settings
 
-**Status:** Draft v0.1
+**Status:** Published

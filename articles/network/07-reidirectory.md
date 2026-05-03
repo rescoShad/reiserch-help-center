@@ -64,7 +64,7 @@ What users see depends on the target's privacy settings. Phone numbers and email
 - AI Matchmaking
 - Public Profile
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - [DIRECTORY_MAX_RESULTS] — The session recap assumed 1000 max results with 200 per page. Replace with actual values.

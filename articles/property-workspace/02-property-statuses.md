@@ -64,4 +64,4 @@ The Properties page has tabs that group properties by status: Drafts, Shared, Pu
 - Publishing to Marketplace
 - Using Folders to Organize Properties
 
-**Status:** Draft v0.1
+**Status:** Published

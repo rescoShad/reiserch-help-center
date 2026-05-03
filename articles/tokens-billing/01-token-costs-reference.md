@@ -71,7 +71,7 @@ Monthly allowances reset each billing cycle. Unused allowances do not roll over.
 - Earning Tokens Through Actions
 - Understanding Tokens
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - All token costs are placeholders ([BASIC_COMP_COST], etc.). Replace with actual values from the billing system.

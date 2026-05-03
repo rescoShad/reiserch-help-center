@@ -64,4 +64,4 @@ Flag these as secondary comps and adjust their value manually in your analysis.
 - Saving and Exporting Comps
 - What Is Underwriting?
 
-**Status:** Draft v0.1
+**Status:** Published

@@ -52,4 +52,4 @@ If you consistently run out before the end of your billing cycle:
 - Premier Plus and Plans
 - Earning Tokens Through Actions
 
-**Status:** Draft v0.1
+**Status:** Published

@@ -62,7 +62,7 @@ You can connect both ChatGPT and Gemini simultaneously. When both are connected,
 - Generating a Presentation
 - Understanding Tokens
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The specific locations of AI features (property notes, comp analysis) are extrapolated from the platform doc's description ("content generation and data analysis") and standard patterns. If AI triggers have different entry points or are limited to specific plan tiers, I can update.

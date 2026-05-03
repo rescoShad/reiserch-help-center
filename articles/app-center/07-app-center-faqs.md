@@ -61,4 +61,4 @@ Sync frequency varies by integration:
 - Using AI Integrations
 - Managing Integrations
 
-**Status:** Draft v0.1
+**Status:** Published

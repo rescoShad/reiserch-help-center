@@ -83,7 +83,7 @@ To send the presentation to buyers:
 - How to Run Comps
 - Your First Property
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The session recap noted that the wholesaler tour generates a full paid-tier Presentation as part of onboarding (tokens deducted from the 25,000 grant). If this article needs to call that out for new wholesaler users specifically, I can add a note.

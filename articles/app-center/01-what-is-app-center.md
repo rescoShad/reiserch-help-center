@@ -61,7 +61,7 @@ Some integrations are only available on certain plans. For example, GoHighLevel 
 - Google Contacts Import
 - Account Settings and Plans
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The session recap flagged App Center inventory as a pending confirmation. I limited app listings to what the platform doc confirmed (GoHighLevel, ChatGPT, Gemini, Google Contacts). If there are additional live integrations, I can add them on your confirmation.

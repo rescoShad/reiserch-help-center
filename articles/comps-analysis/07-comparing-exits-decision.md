@@ -66,4 +66,4 @@ Click "Save to Property" to keep the underwriting attached to the property. You 
 - How to Run Comps on ReiSearch
 - Repair Estimator
 
-**Status:** Draft v0.1
+**Status:** Published

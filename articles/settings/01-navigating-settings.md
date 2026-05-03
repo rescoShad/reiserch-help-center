@@ -50,7 +50,7 @@ Most Settings tabs save changes as you update fields. For forms with explicit Sa
 - Notifications Preferences
 - Teams Overview
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The platform doc lists route mappings for /settings, /settings/expertise, /settings/rankings, and /billing. The other tab routes (Notifications, Teams, App Center, Support) are listed under the /settings/ umbrella but their exact sub-routes are not specified. I described them generally. If exact URLs exist, I can update.

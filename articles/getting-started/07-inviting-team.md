@@ -67,7 +67,7 @@ Once a property is shared, team members can discuss it in the property's thread.
 - Sharing a Property
 - Teams Overview (Settings)
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The platform doc mentions Teams under Settings but does not specify exact permission levels (View/Edit/Admin). I used standard team permission patterns. If the actual permission model is different, I can update.

@@ -72,4 +72,4 @@ Check your current usage in Settings > Billing. If you approach your limit, dele
 - Understanding Property Statuses
 - How to Add a New Property
 
-**Status:** Draft v0.1
+**Status:** Published

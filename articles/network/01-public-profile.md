@@ -71,4 +71,4 @@ Go to Settings > Profile to update any public information. See "How to Update Yo
 - How to Update Your Profile
 - How to Create a Buy Box
 
-**Status:** Draft v0.1
+**Status:** Published

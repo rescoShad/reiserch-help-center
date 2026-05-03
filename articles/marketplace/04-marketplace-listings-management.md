@@ -73,4 +73,4 @@ Marking it as Sold rather than unpublishing preserves the deal history for your 
 - Featured and Pro Listings
 - Understanding Property Statuses
 
-**Status:** Draft v0.1
+**Status:** Published

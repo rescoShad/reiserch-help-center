@@ -71,4 +71,4 @@ If a buyer's buy box matches your property, they receive a notification. If auto
 - Understanding Property Statuses
 - Featured and Pro Listings
 
-**Status:** Draft v0.1
+**Status:** Published

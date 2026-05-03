@@ -52,4 +52,4 @@ Contact Support through the Support page or email support@reisearch.com. Include
 - How AI Comps Work
 - Reading a Comp Result
 
-**Status:** Draft v0.1
+**Status:** Published

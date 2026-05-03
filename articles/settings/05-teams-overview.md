@@ -78,4 +78,4 @@ Teams are available on the Team plan ($500/month) and above. Free, Core, and Sca
 - Collaborating on Properties
 - Navigating Settings
 
-**Status:** Draft v0.1
+**Status:** Published

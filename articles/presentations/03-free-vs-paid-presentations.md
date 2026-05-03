@@ -67,4 +67,4 @@ After the grant is used, additional full presentations require a paid plan or to
 - Buying Token Bundles
 - Premier Plus and Plans
 
-**Status:** Draft v0.1
+**Status:** Published

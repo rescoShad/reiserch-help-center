@@ -57,4 +57,4 @@ Your Dashboard profile card shows a percentage. As you complete checklist items,
 - Creating a Buy Box
 - How to Run Comps
 
-**Status:** Draft v0.1
+**Status:** Published

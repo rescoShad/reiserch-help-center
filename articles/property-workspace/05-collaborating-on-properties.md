@@ -90,4 +90,4 @@ Currently, ReiSearch does not maintain a field-level version history for propert
 - Teams Overview
 - Understanding Property Statuses
 
-**Status:** Draft v0.1
+**Status:** Published

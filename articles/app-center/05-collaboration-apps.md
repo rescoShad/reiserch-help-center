@@ -54,7 +54,7 @@ Some collaboration integrations may require a paid plan. Check the integration c
 - App Center FAQs
 - How to Connect and Use CRM Integrations
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - Specific collaboration app names were not confirmed in the platform doc. The App Center inventory was flagged as a pending confirmation. Update with actual integration names when confirmed.

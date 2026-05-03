@@ -78,4 +78,4 @@ Use this data to focus your deal flow on the lists that convert best.
 - Generating a Presentation
 - How to Create a Buy Box
 
-**Status:** Draft v0.1
+**Status:** Published

@@ -71,4 +71,4 @@ Each comp run costs [BASIC_COMP_COST] tokens. Your token balance is shown in the
 - Demographics and Market Data
 - Your First Property
 
-**Status:** Draft v0.1
+**Status:** Published

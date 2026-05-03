@@ -80,7 +80,7 @@ Use the Share function on the property to give team members or partners access t
 - How to Share a Property
 - Property Threads
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - Specific contract template names were not confirmed in the platform doc. I listed common real estate contract types but these need to be verified against what is actually available in the platform. If the template list is different, I can update.

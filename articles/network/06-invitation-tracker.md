@@ -69,4 +69,4 @@ Some plans limit how many pending invitations you can have at one time. If you r
 - ReiDirectory
 - Public Profile
 
-**Status:** Draft v0.1
+**Status:** Published

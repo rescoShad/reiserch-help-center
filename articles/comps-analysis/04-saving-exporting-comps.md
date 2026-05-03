@@ -74,4 +74,4 @@ If you run comps again on the same property:
 - What Is Underwriting?
 - Running a Multi-Exit Underwriting
 
-**Status:** Draft v0.1
+**Status:** Published

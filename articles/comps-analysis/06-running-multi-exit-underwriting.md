@@ -56,4 +56,4 @@ Each selected exit may ask for additional details unique to that approach. Revie
 - How to Run Comps on ReiSearch
 - Adjusting Comps Filters
 
-**Status:** Draft v0.1
+**Status:** Published

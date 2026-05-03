@@ -50,7 +50,7 @@ CRM integration requires a Core plan ($50/mo) or higher. If you are on the Free 
 - Account Settings and Plans
 - Dashboard and Property Workflow
 
-**Status:** Draft v0.1
+**Status:** Published
 
 ### Notes for Neo
 - The sync direction (bidirectional or CRM-only) was not specified in the platform doc. I described it as action-driven syncing from ReiSearch to CRM as a reasonable default. Confirm actual sync behavior and I can update.

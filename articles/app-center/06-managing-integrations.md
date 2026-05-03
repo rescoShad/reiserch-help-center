@@ -73,4 +73,4 @@ You can connect multiple apps in the same category. For example, both ChatGPT an
 - Using AI Integrations
 - App Center FAQs
 
-**Status:** Draft v0.1
+**Status:** Published

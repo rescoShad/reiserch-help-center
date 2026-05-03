@@ -71,4 +71,4 @@ Click "Clear All" or remove individual filter chips by clicking the X on each on
 - Understanding Property Statuses
 - Featured and Pro Listings
 
-**Status:** Draft v0.1
+**Status:** Published

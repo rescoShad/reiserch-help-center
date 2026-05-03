@@ -54,4 +54,4 @@ If text overlaps, images misalign, or sections break across pages:
 - Free vs. Paid Presentations
 - Sharing a Presentation
 
-**Status:** Draft v0.1
+**Status:** Published

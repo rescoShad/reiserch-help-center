@@ -78,4 +78,4 @@ The Repair Estimator is a planning tool, not a contractor bid. Always get at lea
 - Reading a Comp Result
 - ReiSearch Reports
 
-**Status:** Draft v0.1
+**Status:** Published

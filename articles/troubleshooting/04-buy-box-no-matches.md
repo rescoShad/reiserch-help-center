@@ -54,4 +54,4 @@ Marketplace listings and buy box matching refresh periodically. If you updated y
 - Buy Box Auto-Send
 - Marketplace Overview
 
-**Status:** Draft v0.1
+**Status:** Published
