@@ -24,37 +24,36 @@ showFeedback: true
 
 # Creating your ReiSearch account
 
-Create your ReiSearch account in about two minutes and get access to property analysis, deal management, and your professional network.
-
-## Overview
-
-This article walks you through signing up, verifying your email, and completing your first login so you can start using ReiSearch right away.
-
-## Before you start
-
-You need an email address that you check regularly. Your password must be at least 8 characters with a mix of letters, numbers, and symbols. If someone invited you to ReiSearch, have the invitation email ready for a faster sign-up.
+Follow these simple steps to create your ReiSearch account and start analyzing real estate deals in minutes.
 
 ## Step-by-step guide
 
-### 1. Go to the sign-up page
+### 1. Go to app.reisearch.io
 
-Open reisearch.com in your browser. Click "Sign Up" or "Get Started." If someone invited you to ReiSearch, open the link in your invitation email — the form pre-fills with your inviter's information already linked.
+Head to app.reisearch.io and click Get Started to begin setting up your account.
 
-### 2. Enter your information
+### 2. Enter your details
 
-Fill in your first and last name, email address, and password. Your name appears on your public profile and in the Directory. Your email is your login and the address where verification, notification, and password-reset emails are sent. Read the Terms of Service and Privacy Policy, check the box to accept, and click "Create Account."
+Enter your name, email address, and create a secure password.
 
 ### 3. Verify your email
 
-ReiSearch sends a verification email to the address you provided. Open your inbox and look for an email from support@reisearch.com. If it does not appear within two minutes, check your spam or promotions folder. Add support@reisearch.com to your contacts to prevent future delivery issues. Click the verification link in the email to activate your account. The link expires after a set time. If it expires, request a new one from the login page.
+Check your inbox and click the verification link to activate your account.
 
-### 4. Complete the onboarding screen
+### 4. Set up your profile
 
-On your first login, ReiSearch shows a short onboarding screen asking about your investing role. Select the option that best describes how you work: Analyst (you evaluate and underwrite deals), Wholesaler (you find and assign or flip properties), or Networker (you build connections and find partners). Your selection adjusts the platform experience and your onboarding checklist. You can update this later in Settings.
+Tell us a bit about your real estate focus so ReiSearch can personalize your experience.
 
 ## What happens next?
 
-Your Dashboard loads with your profile card, token wallet, account setup checklist, and quick action cards. From here you can add a property, run comps, connect with other users, or explore the Marketplace. Visit "Understanding your dashboard" for a full tour of everything on the screen.
+Your Dashboard loads with your profile card, token wallet, account setup checklist, and quick action cards. From here you can add a property, run comps, connect with other users, or explore the Marketplace.
+
+## Related articles
+
+- Managing your profile — Update your personal info, password, and preferences.
+- Resetting your password — Learn how to reset your password step by step.
+- Understanding your dashboard — Get familiar with the layout and key features of your dashboard.
+- Inviting team members — Invite teammates and manage access to your account.
 
 ## Need more help?
 
