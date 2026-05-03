@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Public Profile — Help Center</title>
+<link rel="icon" href="/logo.png"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f7faff;color:#020617;line-height:1.5;min-height:100vh}
+a{color:inherit;text-decoration:none}button{cursor:pointer;font:inherit;color:inherit;background:none;border:none}svg{display:block;flex-shrink:0}
+.header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(226,232,240,.8);background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.h-inner{display:flex;align-items:center;gap:20px;padding:16px 24px;max-width:1500px;margin:0 auto}
+.h-left{display:flex;align-items:flex-end;gap:12px;text-decoration:none;color:inherit}
+.h-logo{height:40px;width:auto;display:block}
+.h-sub{font-size:14px;font-weight:500;color:#475569}
+.h-right{display:flex;align-items:center;gap:16px;margin-left:auto}
+.h-btn{display:none;padding:10px 16px;border-radius:12px;border:1px solid #bfdbfe;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;white-space:nowrap;transition:background .15s}
+.h-btn:hover{background:#eff6ff}@media(min-width:768px){.h-btn{display:block}}
+.h-avatar{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#eff6ff;font-size:12px;font-weight:700;color:#1d4ed8}
+.main-grid{display:grid;grid-template-columns:1fr;gap:20px;padding:24px;max-width:1500px;margin:0 auto}
+@media(min-width:1024px){.main-grid{grid-template-columns:280px minmax(0,1fr) 250px}}
+.sidebar{display:none}@media(min-width:1024px){.sidebar{display:block}}.sidebar-sticky{position:sticky;top:96px}
+.sidebar-card{border:1px solid #e2e8f0;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.nav-group{border-bottom:1px solid #f1f5f9;padding:16px;display:flex;align-items:center;justify-content:space-between}
+.nav-label{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.05em;color:#475569;text-decoration:none}
+.nav-icon{width:16px;height:16px;color:#2563eb;flex-shrink:0}
+.nav-arrow{color:#94a3b8;font-size:12px}
+.nav-links{margin-top:16px;border-left:1px solid #e2e8f0;padding-left:12px;display:flex;flex-direction:column;gap:4px}
+.nav-link{display:block;width:100%;padding:8px 12px;border-radius:12px;text-align:left;font-size:14px;color:#475569;transition:background .15s;text-decoration:none}
+.nav-link:hover{background:#f8fafc}.nav-link.active{background:#eff6ff;font-weight:600;color:#1d4ed8}
+.support-card{margin:16px;padding:16px;border:1px solid #e2e8f0;border-radius:16px;background:#f8fafc}
+.support-card h3{font-size:14px;font-weight:700;color:#020617;margin-bottom:4px}
+.support-card p{font-size:14px;line-height:1.5;color:#475569}
+.support-btn{width:100%;margin-top:16px;padding:8px 16px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s;cursor:pointer}
+.support-btn:hover{background:#eff6ff}
+.article{min-width:0;border:1px solid #e2e8f0;border-radius:24px;background:#fff;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+@media(min-width:768px){.article{padding:32px}}
+.breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:20px;font-size:14px}
+.bc-link{font-weight:500;color:#1d4ed8;text-decoration:none}.bc-current{color:#64748b}
+.cv-icon{width:16px;height:16px;color:#94a3b8;flex-shrink:0}
+.hero{border:1px solid #bfdbfe;border-radius:24px;background:linear-gradient(135deg,#eff6ff,#fff,#eff6ff);padding:28px;overflow:hidden}
+@media(min-width:768px){.hero{padding:32px}}
+.hero-grid{display:grid;gap:32px}@media(min-width:768px){.hero-grid{grid-template-columns:1fr 320px;align-items:center}}
+.hbadge{display:inline-flex;padding:4px 12px;border-radius:999px;background:#dbeafe;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1d4ed8}
+.htitle{max-width:42rem;margin-top:20px;font-size:36px;font-weight:700;letter-spacing:-.025em;color:#020617}
+@media(min-width:768px){.htitle{font-size:48px}}
+.hdesc{max-width:42rem;margin-top:16px;font-size:16px;line-height:1.75;color:#475569}
+.hmeta{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;color:#64748b}
+.hcard{display:none;position:relative;height:224px;border-radius:24px;background:#fff;padding:20px;box-shadow:0 10px 15px -3px rgba(37,99,235,.25)}
+@media(min-width:768px){.hcard{display:block}}
+.hc-blob1{position:absolute;top:-16px;right:-16px;width:80px;height:80px;border-radius:50%;background:rgba(37,99,235,.1)}
+.hc-blob2{position:absolute;bottom:-20px;left:40px;width:96px;height:96px;border-radius:50%;background:rgba(37,99,235,.15)}
+.hc-inner{position:relative;margin:16px auto 0;display:flex;flex-direction:column;width:224px;height:160px;border:1px solid #bfdbfe;border-radius:24px;background:#fff;padding:20px;transform:rotate(3deg);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}
+.hc-bar{width:80px;height:12px;border-radius:999px;background:#dbeafe;margin-bottom:20px}
+.hc-iwrap{margin:0 auto;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#dbeafe;color:#1d4ed8}
+.hc-iwrap svg{width:28px;height:28px}
+.hc-footer{border:1px solid #e2e8f0;border-radius:16px;padding:12px;margin-top:20px}
+.hc-fbar1{width:112px;height:8px;border-radius:999px;background:#e2e8f0}
+.hc-fbar2{width:80px;height:8px;border-radius:999px;background:#bfdbfe;margin-top:8px}
+.section{margin-top:32px}.card{border:1px solid #e2e8f0;border-radius:16px;padding:20px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.card+.card{margin-top:12px}
+.ctitle{font-size:16px;font-weight:700;color:#020617;margin-bottom:8px}
+.cbody{font-size:14px;line-height:1.7;color:#475569}
+.cbody p{margin-bottom:8px}.cbody p:last-child{margin-bottom:0}
+.cbody ul{list-style:none;margin:8px 0 0 0}
+.cbody ul li{padding:5px 0;font-size:14px;color:#475569;line-height:1.6}
+.cbody ul li::before{content:"\2022 ";color:#2563eb;font-weight:700}
+.cbody ul li strong{color:#020617}
+.related-section{margin-top:32px}.rtitle{font-size:20px;font-weight:700;letter-spacing:-.025em;color:#020617}
+.rgrid{display:grid;gap:16px;margin-top:16px}
+@media(min-width:768px){.rgrid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1280px){.rgrid{grid-template-columns:repeat(4,1fr)}}
+.rcard{padding:16px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;text-align:left;transition:border-color .15s,background .15s;text-decoration:none;display:block}
+.rcard:hover{border-color:#bfdbfe;background:rgba(239,246,255,.4)}
+.ricon{width:24px;height:24px;color:#1d4ed8}
+.rcard-title{margin-top:16px;font-size:14px;font-weight:700;color:#020617}.rcard-link{margin-top:16px;font-size:14px;font-weight:600;color:#1d4ed8}
+.feedback{margin-top:32px;display:flex;flex-direction:column;gap:16px;padding:20px;border:1px solid #e2e8f0;border-radius:16px;background:#f8fafc}
+@media(min-width:768px){.feedback{flex-direction:row;align-items:center;justify-content:space-between}}
+.fbtitle{font-weight:700;color:#020617}.fbdesc{margin-top:4px;font-size:14px;color:#475569}
+.fbbtns{display:flex;gap:12px}
+.fbbtn{display:flex;align-items:center;gap:8px;padding:8px 20px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s;cursor:pointer}
+.fbbtn:hover{background:#eff6ff}.fbbtn svg{width:16px;height:16px}
+.rsidebar{display:none}@media(min-width:1280px){.rsidebar{display:block}}
+.rsticky{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px}
+.toct-card{padding:20px;border:1px solid #e2e8f0;border-radius:24px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.tlabel{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#334155}
+.tlist{margin-top:20px;border-left:1px solid #e2e8f0;padding-left:16px;display:flex;flex-direction:column;gap:16px}
+.titem{display:block;text-align:left;font-size:14px;color:#475569;transition:color .15s}
+.titem:hover{color:#1d4ed8}.titem.active{font-weight:600;color:#1d4ed8}
+.pcard{padding:20px;border:1px solid #e2e8f0;border-radius:24px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.piwrap{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#eff6ff;color:#1d4ed8}
+.piwrap svg{width:20px;height:20px}
+.ptitle{margin-top:20px;font-weight:700;color:#020617}.pdesc{margin-top:8px;font-size:14px;line-height:1.5;color:#475569}
+.pbtn{width:100%;margin-top:20px;padding:8px 16px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s;display:block;text-align:center;text-decoration:none}
+.pbtn:hover{background:#eff6ff}</style></head>
+<body><div class="page">
+<header class="header"><div class="h-inner">
+<a href="/" class="h-left"><img src="/logo.png" alt="ReiSearch" class="h-logo"/><span class="h-sub">Help Center</span></a>
+<div class="h-right"><a href="https://reisearch.com" class="h-btn">Visit ReiSearch ↗</a><div class="h-avatar">RS</div></div>
+</div></header>
+<main class="main-grid">
+<aside class="sidebar"><div class="sidebar-sticky"><div class="sidebar-card">
+<nav aria-label="Help navigation">
+<div class="nav-group"><a href="/" class="nav-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/></svg>HELP CENTER</a><span class="nav-arrow">⌄</span></div>
+<div class="nav-group"><span class="nav-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7 15.3 7.3"/><path d="M8.7 13.3 15.3 16.7"/></svg>NETWORK & COLLABORATION</span><span class="nav-arrow">⌄</span></div>
+<div style="padding:0 16px 16px;border-bottom:1px solid #f1f5f9"><div class="nav-links"><a href="/articles/network/01-public-profile" class="nav-link active">Public Profile</a>
+<a href="/articles/network/02-connecting-with-people" class="nav-link">Connecting with People</a>
+<a href="/articles/network/03-property-threads" class="nav-link">Property Threads</a>
+<a href="/articles/network/04-reisearch-feed" class="nav-link">The ReiSearch Feed</a>
+<a href="/articles/network/05-ai-matchmaking" class="nav-link">AI Matchmaking</a>
+<a href="/articles/network/06-invitation-tracker" class="nav-link">Invitation Tracker</a>
+<a href="/articles/network/07-reidirectory" class="nav-link">ReiDirectory</a>
+</div></div></nav>
+<div class="support-card"><h3>Still need help?</h3><p>Our support team is here for you.</p><button class="support-btn">Contact Support</button></div>
+</div></div></aside>
+<article class="article">
+<div class="breadcrumbs"><a href="/" class="bc-link">Help Center</a><svg class="cv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg><span class="bc-current">Public Profile</span></div>
+<section class="hero"><div class="hero-grid"><div>
+<span class="hbadge">Network & Collaboration</span>
+<h1 class="htitle">Public Profile</h1>
+<p class="hdesc">Understand what is visible on your public profile and how it impacts Directory ranking and network growth.</p>
+<div class="hmeta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>8 min read</span></div></div>
+<div class="hcard"><div class="hc-blob1"></div><div class="hc-blob2"></div><div class="hc-inner"><div class="hc-bar"></div><div class="hc-iwrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7 15.3 7.3"/><path d="M8.7 13.3 15.3 16.7"/></svg></div><div class="hc-footer"><div class="hc-fbar1"></div><div class="hc-fbar2"></div></div></div></div></div></section>
+<div class="section"><p class="hdesc" style="margin-top:0">Your public profile is how other ReiSearch users see you. It appears in the Directory, on property cards you share, and when users search for you. What you choose to make public (or keep private) affects your discoverability.</p></div>
+<section class="section"><div class="card"><div class="ctitle">Public vs. Private Information</div><div class="cbody"><p><strong>Always public:</strong><br/>- Name and profile photo.<br/>- Location tags (cities/areas you entered).<br/>- Expertise badges.<br/>- Buy boxes (if set to Public visibility).<br/>- Social media links (if added).<br/><strong>Controlled by visibility settings:</strong><br/>- Phone number — Public, Network, or Private.<br/>- Email address — Public, Network, or Private.<br/>- Company name and logo — Visible on shared properties and presentations.<br/><strong>Always private:</strong><br/>- Account settings and password.<br/>- Token balance.<br/>- Property drafts (not published or shared).<br/>- Billing and subscription details.</p></div></div></section>
+<section class="section"><div class="card"><div class="ctitle">Directory Listing</div><div class="cbody"><p>Your profile appears in the Directory automatically when you complete at least the basic fields (name, photo, location, expertise).<br/>Directory search results display:<br/>- Profile photo and name.<br/>- Location and expertise badges.<br/>- Connection count and points (engagement score).<br/>- Contact options (based on your visibility settings).</p></div></div></section>
+<section class="section"><div class="card"><div class="ctitle">Expertise Badges</div><div class="cbody"><p>Expertise selections appear as colored badge tags in your Directory listing and Network profile. They help other users understand your role at a glance: Buyer, Acquisitions, Lead Generator, Wholesaler, and others.<br/>Badges are set in Settings &gt; Expertise. Choose the options that match your business. Selecting too many dilutes the signal. Selecting too few may make you harder to find.</p></div></div></section>
+<section class="section"><div class="card"><div class="ctitle">Profile Completeness and Rankings</div><div class="cbody"><p>Your profile completion percentage (shown on the Dashboard) directly affects:<br/>- <strong>Directory ranking</strong> — More complete profiles rank higher in search results.<br/>- <strong>Connection acceptance</strong> — Users are more likely to accept connection requests from complete profiles.<br/>- <strong>Buy box visibility</strong> — Publishers see complete profiles as more credible partners.<br/>The system calculates completeness based on: profile picture, public info (name, location, bio), social media links, expertise, and buy box.</p></div></div></section>
+<section class="section"><div class="card"><div class="ctitle">Public Profile Routes</div><div class="cbody"><p>Your public profile is accessible at /profile/:slug where :slug is your user identifier. The Dashboard link and Directory entries point here. Users who visit your profile see your buy boxes, shared properties (if applicable), and contact options based on your visibility settings.</p></div></div></section>
+<section class="section"><div class="card"><div class="ctitle">Updating Your Profile</div><div class="cbody"><p>Go to Settings &gt; Profile to update any public information. See "How to Update Your Profile" for the full walkthrough.<br/>- Connecting with People<br/>- Completing Your Profile<br/>- How to Update Your Profile<br/>- How to Create a Buy Box<br/><strong>Status:</strong> Draft v0.1</p></div></div></section>
+
+<section class="related-section"><h2 class="rtitle">Related articles</h2><div class="rgrid"><a href="/articles/network/02-connecting-with-people" class="rcard"><svg class="ricon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg><h3 class="rcard-title">Connecting with People</h3><div class="rcard-link">Read article →</div></a>
+<a href="/articles/network/03-property-threads" class="rcard"><svg class="ricon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><h3 class="rcard-title">Property Threads</h3><div class="rcard-link">Read article →</div></a>
+<a href="/articles/network/04-reisearch-feed" class="rcard"><svg class="ricon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 19 6v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><h3 class="rcard-title">The ReiSearch Feed</h3><div class="rcard-link">Read article →</div></a>
+<a href="/articles/network/05-ai-matchmaking" class="rcard"><svg class="ricon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3 class="rcard-title">AI Matchmaking</h3><div class="rcard-link">Read article →</div></a>
+</div></section>
+<section class="feedback"><div><h3 class="fbtitle">Was this helpful?</h3><p class="fbdesc">Your feedback helps us improve our help center.</p></div><div class="fbbtns">
+<button class="fbbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 21H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3"/><path d="M10 11V6a3 3 0 0 1 3-3l1 5h4a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7v-8h3Z"/></svg> Yes</button>
+<button class="fbbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h3"/><path d="M10 13v5a3 3 0 0 0 3 3l1-5h4a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7v8h3Z"/></svg> No</button>
+</div></section>
+</article>
+<aside class="rsidebar"><div class="rsticky">
+<div class="toct-card"><h2 class="tlabel">On this page</h2><nav class="tlist" aria-label="On this page"><span class="titem active">Public vs. Private Information</span>
+<span class="titem">Directory Listing</span>
+<span class="titem">Expertise Badges</span>
+<span class="titem">Profile Completeness and Rankings</span>
+<span class="titem">Public Profile Routes</span>
+<span class="titem">Updating Your Profile</span>
+</nav></div>
+<div class="pcard"><div class="piwrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg></div>
+<h3 class="ptitle">New to ReiSearch?</h3><p class="pdesc">Explore the platform and see how ReiSearch can power your next deal.</p><a href="https://reisearch.com" class="pbtn">Visit ReiSearch ↗</a></div></div></aside>
+</main></div></body></html>
