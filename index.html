@@ -1,405 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ReiSearch Help Center</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+  <link rel="icon" href="/logo.png" />
   <style>
-    :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --surface-hover: #334155;
-      --border: #334155;
-      --text: #e2e8f0;
-      --text-muted: #94a3b8;
-      --accent: #3b82f6;
-      --accent-hover: #60a5fa;
-      --green: #22c55e;
-      --amber: #f59e0b;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
-      background: var(--surface);
-    }
-    header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    header h1 span { color: var(--accent); }
-    header .subtitle {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .badge.green { background: #16a34a; }
-    .badge.amber { background: #d97706; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f7faff;color:#020617;line-height:1.5;min-height:100vh;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;font:inherit;color:inherit;background:none;border:none}
+    svg{display:block;flex-shrink:0}
+    img{max-width:100%;height:auto}
 
-    .hero {
-      padding: 60px 0 40px;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .hero p {
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-    }
+    /* Header */
+    .header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(226,232,240,.8);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+    .header-inner{display:flex;align-items:center;gap:20px;padding:16px 24px;max-width:1500px;margin:0 auto}
+    .header-left{text-decoration:none;display:flex;align-items:flex-end;gap:12px}
+    .brand-sub{font-size:14px;font-weight:500;color:#475569}
+    .header-search{display:none;align-items:center;width:100%;max-width:512px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05);margin:0 auto}
+    @media(min-width:768px){.header-search{display:flex}}
+    .hsearch-icon{width:16px;height:16px;color:#94a3b8;margin-right:12px}
+    .hsearch-pl{font-size:14px;color:#64748b}
+    .header-btn{display:none;padding:10px 16px;border-radius:12px;background:#2563eb;color:#fff;font-size:14px;font-weight:600;box-shadow:0 4px 6px -1px rgba(37,99,235,.2);transition:background .15s;white-space:nowrap}
+    .header-btn:hover{background:#1d4ed8}
+    @media(min-width:768px){.header-btn{display:block}}
+    .ml-auto{margin-left:auto}
 
-    .cluster-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-      padding-bottom: 60px;
-    }
-    .cluster-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .cluster-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .cluster-card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cluster-card .count {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-    .cluster-card ul {
-      list-style: none;
-    }
-    .cluster-card ul li {
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .cluster-card ul li:last-child { border-bottom: none; }
-    .cluster-card ul li a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cluster-card ul li a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-    .cluster-card ul li a .num {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      font-variant-numeric: tabular-nums;
-    }
+    /* Hero */
+    .hero{padding:64px 24px 48px;text-align:center;max-width:800px;margin:0 auto}
+    .hero-badge{display:inline-flex;padding:4px 14px;border-radius:999px;background:#dbeafe;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1d4ed8;margin-bottom:16px}
+    .hero h1{font-size:44px;font-weight:700;letter-spacing:-.03em;color:#020617;line-height:1.15}
+    @media(min-width:640px){.hero h1{font-size:52px}}
+    .hero p{font-size:16px;line-height:1.7;color:#475569;max-width:560px;margin:16px auto 32px}
 
-    .stats {
-      display: flex;
-      gap: 32px;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
-    }
-    .stat-item {
-      text-align: center;
-    }
-    .stat-item .number {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    .stat-item .label {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+    /* Search */
+    .search-wrap{position:relative;max-width:560px;margin:0 auto}
+    .search-input{width:100%;padding:16px 20px 16px 52px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;font-size:16px;color:#020617;box-shadow:0 4px 6px -1px rgba(0,0,0,.06);outline:none;transition:border-color .2s,box-shadow .2s}
+    .search-input:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .search-input::placeholder{color:#94a3b8}
+    .search-icon-left{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:#94a3b8;pointer-events:none}
+    .search-count{margin-top:12px;font-size:13px;color:#94a3b8}
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-    footer a { color: var(--accent); text-decoration: none; }
+    /* Content */
+    .content{max-width:1200px;margin:0 auto;padding:0 24px 64px}
 
-    @media (max-width: 640px) {
-      .cluster-grid { grid-template-columns: 1fr; }
-      .hero h2 { font-size: 1.5rem; }
-      header h1 { font-size: 1.25rem; }
-    }
+    /* Section header */
+    .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .section-head h2{font-size:20px;font-weight:700;color:#020617}
+    .section-head a{font-size:14px;font-weight:600;color:#2563eb;transition:color .15s}
+    .section-head a:hover{color:#1d4ed8}
+
+    /* Category cards */
+    .cat-grid{display:grid;gap:16px}
+    @media(min-width:540px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:900px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
+    .cat-card{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:24px;transition:border-color .2s,box-shadow .2s,transform .2s;cursor:pointer}
+    .cat-card:hover{border-color:#bfdbfe;box-shadow:0 8px 20px -8px rgba(37,99,235,.15);transform:translateY(-2px)}
+    .cat-card .icon-wrap{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+    .cat-card h3{font-size:16px;font-weight:700;color:#020617}
+    .cat-card .meta{display:flex;align-items:center;gap:12px;margin-top:8px}
+    .cat-card .count{font-size:13px;color:#64748b}
+    .cat-card .desc{font-size:13px;line-height:1.5;color:#64748b;margin-top:6px}
+    .cat-card .arrow{margin-top:16px;font-size:14px;font-weight:600;color:#2563eb;display:flex;align-items:center;gap:4px}
+    .cat-card:hover .arrow{color:#1d4ed8}
+
+    /* Quick start */
+    .quick-grid{display:grid;gap:16px}
+    @media(min-width:540px){.quick-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:900px){.quick-grid{grid-template-columns:repeat(4,1fr)}}
+    .quick-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+    .quick-card:hover{border-color:#bfdbfe;box-shadow:0 8px 20px -8px rgba(37,99,235,.15);transform:translateY(-2px)}
+    .quick-card .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:700;margin-bottom:10px}
+    .quick-card h4{font-size:14px;font-weight:700;color:#020617}
+    .quick-card p{font-size:13px;line-height:1.4;color:#64748b;margin-top:4px}
+
+    /* Popular */
+    .pop-grid{display:grid;gap:12px}
+    @media(min-width:540px){.pop-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:900px){.pop-grid{grid-template-columns:repeat(4,1fr)}}
+    .pop-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px;cursor:pointer;transition:border-color .2s,background .2s}
+    .pop-card:hover{border-color:#bfdbfe;background:rgba(239,246,255,.3)}
+    .pop-card .pop-icon{width:20px;height:20px;color:#1d4ed8;margin-bottom:10px}
+    .pop-card h4{font-size:13px;font-weight:600;color:#020617;line-height:1.4}
+    .pop-card .read-time{font-size:12px;color:#94a3b8;margin-top:6px}
+
+    /* Support CTA */
+    .support-cta{margin-top:48px;background:linear-gradient(135deg,#eff6ff,#fff,#eff6ff);border:1px solid #bfdbfe;border-radius:24px;padding:40px;text-align:center}
+    .support-cta h2{font-size:22px;font-weight:700;color:#020617}
+    .support-cta p{font-size:15px;line-height:1.6;color:#475569;max-width:480px;margin:12px auto 24px}
+    .support-cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .support-cta .btn-primary{padding:12px 24px;border-radius:12px;background:#2563eb;color:#fff;font-size:14px;font-weight:600;transition:background .15s}
+    .support-cta .btn-primary:hover{background:#1d4ed8}
+    .support-cta .btn-secondary{padding:12px 24px;border-radius:12px;border:1px solid #bfdbfe;background:#fff;color:#1d4ed8;font-size:14px;font-weight:600;transition:background .15s}
+    .support-cta .btn-secondary:hover{background:#eff6ff}
+
+    /* Spacer */
+    .spacer32{margin-top:32px}
+    .spacer48{margin-top:48px}
+
+    /* Footer */
+    .footer{border-top:1px solid #e2e8f0;background:#fff;padding:24px;text-align:center;font-size:13px;color:#94a3b8}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
+  <div class="page">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="header-left">
+          <img src="/logo.png" alt="ReiSearch" style="height:40px;width:auto;display:block">
+          <span class="brand-sub">Help Center</span>
+        </a>
+        <div class="header-search">
+          <svg class="hsearch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <span class="hsearch-pl">Search help articles...</span>
+        </div>
+        <a href="https://reisearch.com" class="header-btn ml-auto">Visit ReiSearch ↗</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <span class="hero-badge">Help Center</span>
+      <h1>How can we help you?</h1>
+      <p>Browse articles, guides, and troubleshooting for everything ReiSearch.</p>
+      <div class="search-wrap">
+        <svg class="search-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input class="search-input" type="text" placeholder="Search help articles..." />
+        <p class="search-count">79 articles across 14 categories</p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Browse by category -->
       <div>
-        <img src="/logo.png" alt="ReiSearch" style="height:35px;width:auto;margin-right:12px;vertical-align:middle"> <span style="font-size:1.5rem;font-weight:700;color:#fff">Help Center</span>
-        <div class="subtitle">User guides, troubleshooting, and training articles</div>
+        <div class="section-head">
+          <h2>Browse by category</h2>
+        </div>
+        <div class="cat-grid">
+          <a href="/articles/getting-started/01-creating-account" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">🚀</div>
+            <h3>Getting Started</h3>
+            <p class="meta"><span class="count">7 articles</span></p>
+            <p class="desc">Set up your account, explore the dashboard, and run your first search.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#4f46e5)">👤</div>
+            <h3>Account &amp; Profile</h3>
+            <p class="meta"><span class="count">5 articles</span></p>
+            <p class="desc">Manage your account settings and public profile.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">🏠</div>
+            <h3>Properties</h3>
+            <p class="meta"><span class="count">5 articles</span></p>
+            <p class="desc">Add, manage, and organize your property profiles.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">📊</div>
+            <h3>Comps &amp; Analysis</h3>
+            <p class="meta"><span class="count">7 articles</span></p>
+            <p class="desc">Run AI-powered comps and underwrite deals with confidence.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#4f46e5)">📄</div>
+            <h3>Presentations &amp; Dispo</h3>
+            <p class="meta"><span class="count">8 articles</span></p>
+            <p class="desc">Generate deal presentations and manage disposition.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">🤝</div>
+            <h3>Network</h3>
+            <p class="meta"><span class="count">7 articles</span></p>
+            <p class="desc">Connect with investors, agents, and partners.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">🎯</div>
+            <h3>Buy Boxes</h3>
+            <p class="meta"><span class="count">5 articles</span></p>
+            <p class="desc">Define buyer criteria and get matched automatically.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">🏪</div>
+            <h3>Marketplace</h3>
+            <p class="meta"><span class="count">5 articles</span></p>
+            <p class="desc">Browse, publish, and discover property listings.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#4f46e5)">🧩</div>
+            <h3>App Center</h3>
+            <p class="meta"><span class="count">7 articles</span></p>
+            <p class="desc">Explore integrations and third-party tools.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">💳</div>
+            <h3>Tokens &amp; Billing</h3>
+            <p class="meta"><span class="count">5 articles</span></p>
+            <p class="desc">Understand token costs, plans, and billing.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">📁</div>
+            <h3>Documents</h3>
+            <p class="meta"><span class="count">3 articles</span></p>
+            <p class="desc">Upload, organize, and manage documents.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">🔧</div>
+            <h3>Troubleshooting</h3>
+            <p class="meta"><span class="count">8 articles</span></p>
+            <p class="desc">Resolve common issues and get support.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#4f46e5)">⚙️</div>
+            <h3>Settings</h3>
+            <p class="meta"><span class="count">5 articles</span></p>
+            <p class="desc">Manage your account, notifications, and team.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">🤖</div>
+            <h3>Comps &amp; Underwriting</h3>
+            <p class="meta"><span class="count">7 articles</span></p>
+            <p class="desc">AI-powered analysis and multi-exit underwriting.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+          <a href="#" class="cat-card">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">🏠</div>
+            <h3>Property Workspace</h3>
+            <p class="meta"><span class="count">5 articles</span></p>
+            <p class="desc">Manage drafts, statuses, folders, and collaboration.</p>
+            <div class="arrow">Browse →</div>
+          </a>
+        </div>
       </div>
-      <div>
-        <a href="https://github.com/rescoShad/reiserch-help-center" target="_blank" style="color:var(--text-muted);font-size:0.85rem;text-decoration:none;">GitHub →</a>
+
+      <!-- Quick start -->
+      <div class="spacer48">
+        <div class="section-head">
+          <h2>Quick start</h2>
+        </div>
+        <div class="quick-grid">
+          <a href="/articles/getting-started/01-creating-account" class="quick-card">
+            <div class="num">1</div>
+            <h4>Create your account</h4>
+            <p>Sign up and complete your first login in about two minutes.</p>
+          </a>
+          <a href="/articles/getting-started/02-dashboard-overview" class="quick-card">
+            <div class="num">2</div>
+            <h4>Explore the dashboard</h4>
+            <p>Get oriented with the command center and every major feature.</p>
+          </a>
+          <a href="/articles/getting-started/03-completing-profile" class="quick-card">
+            <div class="num">3</div>
+            <h4>Complete your profile</h4>
+            <p>Unlock Directory visibility, buy box matching, and network features.</p>
+          </a>
+          <a href="/articles/getting-started/04-first-property" class="quick-card">
+            <div class="num">4</div>
+            <h4>Add your first property</h4>
+            <p>Create a property draft with auto-filled tax record data.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Popular articles -->
+      <div class="spacer48">
+        <div class="section-head">
+          <h2>Popular articles</h2>
+          <a href="/articles/getting-started/05-how-to-run-comps">View all →</a>
+        </div>
+        <div class="pop-grid">
+          <a href="/articles/getting-started/05-how-to-run-comps" class="pop-card">
+            <svg class="pop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/></svg>
+            <h4>How to run comps</h4>
+            <p class="read-time">4 min read</p>
+          </a>
+          <a href="/articles/getting-started/06-first-presentation" class="pop-card">
+            <svg class="pop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg>
+            <h4>Creating your first presentation</h4>
+            <p class="read-time">4 min read</p>
+          </a>
+          <a href="/articles/getting-started/07-inviting-team" class="pop-card">
+            <svg class="pop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <h4>Inviting team members</h4>
+            <p class="read-time">4 min read</p>
+          </a>
+          <a href="/articles/getting-started/03-completing-profile" class="pop-card">
+            <svg class="pop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <h4>Completing your profile</h4>
+            <p class="read-time">4 min read</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Support CTA -->
+      <div class="support-cta">
+        <h2>Still need help?</h2>
+        <p>Our support team is here for you. Get in touch and we'll get back to you quickly.</p>
+        <div class="btns">
+          <a href="mailto:support@reisearch.com" class="btn-primary">Contact Support →</a>
+          <a href="https://reisearch.com" class="btn-secondary">Visit ReiSearch ↗</a>
+        </div>
       </div>
     </div>
-  </header>
 
-  <div class="container">
-    <div class="hero">
-      <h2>Everything you need to use ReiSearch</h2>
-      <p>Step-by-step guides, troubleshooting articles, and reference docs organized by feature area.</p>
-    </div>
-
-    <div class="stats">
-      <div class="stat-item">
-        <div class="number">79</div>
-        <div class="label">Articles</div>
-      </div>
-      <div class="stat-item">
-        <div class="number">13</div>
-        <div class="label">Categories</div>
-      </div>
-
-    </div>
-
-    <div class="cluster-grid">
-
-      <!-- Getting Started -->
-      <div class="cluster-card">
-        <h3>🚀 Getting Started</h3>
-        <div class="count">7 articles</div>
-        <ul>
-          <li><a href="articles/getting-started/01-creating-account"><span class="num">01</span> Creating Your ReiSearch Account</a></li>
-          <li><a href="articles/getting-started/02-dashboard-overview"><span class="num">02</span> Dashboard Overview</a></li>
-          <li><a href="articles/getting-started/03-completing-profile"><span class="num">03</span> Completing Your Profile</a></li>
-          <li><a href="articles/getting-started/04-first-property"><span class="num">04</span> Property</a></li>
-          <li><a href="articles/getting-started/05-how-to-run-comps"><span class="num">05</span> Run Comps</a></li>
-          <li><a href="articles/getting-started/06-first-presentation"><span class="num">06</span> Creating Your First Presentation</a></li>
-          <li><a href="articles/getting-started/07-inviting-team"><span class="num">07</span> Inviting Your Team</a></li>
-        </ul>
-      </div>
-
-      <!-- Troubleshooting -->
-      <div class="cluster-card">
-        <h3>🔧 Troubleshooting</h3>
-        <div class="count">8 articles</div>
-        <ul>
-          <li><a href="articles/troubleshooting/01-cannot-run-a-comp.md"><span class="num">01</span> I Cannot Run a Comp</a></li>
-          <li><a href="articles/troubleshooting/02-out-of-tokens.md"><span class="num">02</span> I Am Out of Tokens</a></li>
-          <li><a href="articles/troubleshooting/03-presentation-looks-wrong.md"><span class="num">03</span> My Presentation Looks Wrong</a></li>
-          <li><a href="articles/troubleshooting/04-buy-box-no-matches.md"><span class="num">04</span> My Buy Box Has No Matches</a></li>
-          <li><a href="articles/troubleshooting/05-cannot-find-property.md"><span class="num">05</span> I Cannot Find a Property</a></li>
-          <li><a href="articles/troubleshooting/06-login-password-mfa.md"><span class="num">06</span> Login, Password, and MFA Issues</a></li>
-          <li><a href="articles/troubleshooting/07-export-failed-partial-data.md"><span class="num">07</span> Export Failed or Returned Partial Data</a></li>
-          <li><a href="articles/troubleshooting/08-contacting-support.md"><span class="num">08</span> Contacting Support</a></li>
-        </ul>
-      </div>
-
-      <!-- Account &amp; Settings -->
-      <div class="cluster-card">
-        <h3>⚙️ Account &amp; Settings</h3>
-        <div class="count">5 articles</div>
-        <ul>
-          <li><a href="articles/settings/01-navigating-settings.md"><span class="num">01</span> Navigating Settings</a></li>
-          <li><a href="articles/settings/02-update-profile.md"><span class="num">02</span> Update Your Profile</a></li>
-          <li><a href="articles/settings/03-account-security.md"><span class="num">03</span> Managing Account Security</a></li>
-          <li><a href="articles/settings/04-notifications-preferences.md"><span class="num">04</span> Notification Preferences</a></li>
-          <li><a href="articles/settings/05-teams-overview.md"><span class="num">05</span> Teams Overview</a></li>
-        </ul>
-      </div>
-
-      <!-- Property Workspace -->
-      <div class="cluster-card">
-        <h3>📋 Property Workspace</h3>
-        <div class="count">5 articles</div>
-        <ul>
-          <li><a href="articles/property-workspace/01-add-new-property.md"><span class="num">01</span> Add a New Property</a></li>
-          <li><a href="articles/property-workspace/02-property-statuses.md"><span class="num">02</span> Property Statuses</a></li>
-          <li><a href="articles/property-workspace/03-using-folders.md"><span class="num">03</span> Using Folders to Organize Properties</a></li>
-          <li><a href="articles/property-workspace/04-property-actions-menu.md"><span class="num">04</span> Property Actions Menu</a></li>
-          <li><a href="articles/property-workspace/05-collaborating-on-properties.md"><span class="num">05</span> Collaborating on Properties</a></li>
-        </ul>
-      </div>
-
-      <!-- Marketplace -->
-      <div class="cluster-card">
-        <h3>🏪 Marketplace</h3>
-        <div class="count">5 articles</div>
-        <ul>
-          <li><a href="articles/marketplace/01-browse-marketplace.md"><span class="num">01</span> Browse the Marketplace</a></li>
-          <li><a href="articles/marketplace/02-publish-to-marketplace.md"><span class="num">02</span> Publish a Property to the Marketplace</a></li>
-          <li><a href="articles/marketplace/03-marketplace-filters.md"><span class="num">03</span> Use Marketplace Filters</a></li>
-          <li><a href="articles/marketplace/04-marketplace-listings-management.md"><span class="num">04</span> Managing Your Marketplace Listings</a></li>
-          <li><a href="articles/marketplace/05-private-listings.md"><span class="num">05</span> Private and Unlisted Deals</a></li>
-        </ul>
-      </div>
-
-      <!-- App Center -->
-      <div class="cluster-card">
-        <h3>🔌 App Center</h3>
-        <div class="count">7 articles</div>
-        <ul>
-          <li><a href="articles/app-center/01-what-is-app-center.md"><span class="num">01</span> What Is the App Center?</a></li>
-          <li><a href="articles/app-center/02-crm-integrations.md"><span class="num">02</span> Connect and Use CRM Integrations</a></li>
-          <li><a href="articles/app-center/03-ai-integrations.md"><span class="num">03</span> Using AI Integrations (ChatGPT, Gemini)</a></li>
-          <li><a href="articles/app-center/04-google-contacts-integration.md"><span class="num">04</span> Google Contacts Integration</a></li>
-          <li><a href="articles/app-center/05-collaboration-apps.md"><span class="num">05</span> Collaboration Apps</a></li>
-          <li><a href="articles/app-center/06-managing-integrations.md"><span class="num">06</span> Managing Integrations</a></li>
-          <li><a href="articles/app-center/07-app-center-faqs.md"><span class="num">07</span> App Center FAQs</a></li>
-        </ul>
-      </div>
-
-      <!-- Buy Boxes -->
-      <div class="cluster-card">
-        <h3>🎯 Buy Boxes</h3>
-        <div class="count">5 articles</div>
-        <ul>
-          <li><a href="articles/buy-boxes/01-create-buy-box.md"><span class="num">01</span> Create a Buy Box</a></li>
-          <li><a href="articles/buy-boxes/02-edit-manage-buy-box.md"><span class="num">02</span> Edit and Manage Your Buy Box</a></li>
-          <li><a href="articles/buy-boxes/03-buy-box-matching.md"><span class="num">03</span> How Buy Box Matching Works</a></li>
-          <li><a href="articles/buy-boxes/04-buy-box-matched-properties.md"><span class="num">04</span> Working with Matched Properties</a></li>
-          <li><a href="articles/buy-boxes/05-buy-box-notifications.md"><span class="num">05</span> Buy Box Notification Settings</a></li>
-        </ul>
-      </div>
-
-      <!-- Documents &amp; Images -->
-      <div class="cluster-card">
-        <h3>📄 Documents &amp; Images</h3>
-        <div class="count">3 articles</div>
-        <ul>
-          <li><a href="articles/documents/01-upload-manage-documents.md"><span class="num">01</span> Upload and Manage Documents</a></li>
-          <li><a href="articles/documents/02-property-photos.md"><span class="num">02</span> Use Property Photos</a></li>
-          <li><a href="articles/documents/03-contracts-tool.md"><span class="num">03</span> the Contracts Tool</a></li>
-        </ul>
-      </div>
-
-      <!-- Comps Analysis -->
-      <div class="cluster-card">
-        <h3>🧮 Comps Analysis</h3>
-        <div class="count">7 articles</div>
-        <ul>
-          <li><a href="articles/comps-analysis/01-how-to-run-comps.md"><span class="num">01</span> Run Comps</a></li>
-          <li><a href="articles/comps-analysis/02-understanding-comps-score.md"><span class="num">02</span> the Comps Score</a></li>
-          <li><a href="articles/comps-analysis/03-adjusting-comps-filters.md"><span class="num">03</span> Adjusting Comps Filters</a></li>
-          <li><a href="articles/comps-analysis/04-saving-exporting-comps.md"><span class="num">04</span> Saving and Exporting Comps</a></li>
-          <li><a href="articles/comps-analysis/05-what-is-underwriting.md"><span class="num">05</span> What Is Underwriting?</a></li>
-          <li><a href="articles/comps-analysis/06-running-multi-exit-underwriting.md"><span class="num">06</span> Running a Multi-Exit Underwriting</a></li>
-          <li><a href="articles/comps-analysis/07-comparing-exits-decision.md"><span class="num">07</span> Comparing Exits and Making a Decision</a></li>
-        </ul>
-      </div>
-
-      <!-- Comps &amp; Analysis -->
-      <div class="cluster-card">
-        <h3>📊 Comps &amp; Analysis</h3>
-        <div class="count">7 articles</div>
-        <ul>
-          <li><a href="articles/comps-and-analysis/01-how-ai-comps-work.md"><span class="num">01</span> How AI Comps Work</a></li>
-          <li><a href="articles/comps-and-analysis/02-reading-comp-result.md"><span class="num">02</span> Reading a Comp Result</a></li>
-          <li><a href="articles/comps-and-analysis/03-multi-agent-exit-strategies.md"><span class="num">03</span> Multi-Agent Exit Strategies</a></li>
-          <li><a href="articles/comps-and-analysis/04-demographics-market-data.md"><span class="num">04</span> Demographics and Market Data</a></li>
-          <li><a href="articles/comps-and-analysis/05-repair-estimator.md"><span class="num">05</span> Repair Estimator</a></li>
-          <li><a href="articles/comps-and-analysis/06-underwriting-tools.md"><span class="num">06</span> Underwriting Tools</a></li>
-          <li><a href="articles/comps-and-analysis/07-reisearch-reports.md"><span class="num">07</span> ReiSearch Reports</a></li>
-        </ul>
-      </div>
-
-      <!-- Network &amp; Collaboration -->
-      <div class="cluster-card">
-        <h3>🤝 Network &amp; Collaboration</h3>
-        <div class="count">7 articles</div>
-        <ul>
-          <li><a href="articles/network/01-public-profile.md"><span class="num">01</span> Public Profile</a></li>
-          <li><a href="articles/network/02-connecting-with-people.md"><span class="num">02</span> Connecting with People</a></li>
-          <li><a href="articles/network/03-property-threads.md"><span class="num">03</span> Property Threads</a></li>
-          <li><a href="articles/network/04-reisearch-feed.md"><span class="num">04</span> The ReiSearch Feed</a></li>
-          <li><a href="articles/network/05-ai-matchmaking.md"><span class="num">05</span> AI Matchmaking</a></li>
-          <li><a href="articles/network/06-invitation-tracker.md"><span class="num">06</span> Invitation Tracker</a></li>
-          <li><a href="articles/network/07-reidirectory.md"><span class="num">07</span> ReiDirectory</a></li>
-        </ul>
-      </div>
-
-      <!-- Presentations &amp; Dispo -->
-      <div class="cluster-card">
-        <h3>📊 Presentations &amp; Dispo</h3>
-        <div class="count">8 articles</div>
-        <ul>
-          <li><a href="articles/presentations/01-generating-presentation.md"><span class="num">01</span> Generating a Presentation</a></li>
-          <li><a href="articles/presentations/02-presentation-templates.md"><span class="num">02</span> Presentation Templates</a></li>
-          <li><a href="articles/presentations/03-free-vs-paid-presentations.md"><span class="num">03</span> Free vs. Paid Presentations</a></li>
-          <li><a href="articles/presentations/04-sharing-presentation.md"><span class="num">04</span> Sharing a Presentation</a></li>
-          <li><a href="articles/presentations/05-smart-buyer-lists.md"><span class="num">05</span> Smart Buyer Lists</a></li>
-          <li><a href="articles/presentations/06-buy-box-auto-send.md"><span class="num">06</span> Buy Box Auto-Send</a></li>
-          <li><a href="articles/presentations/07-dispo-blowout.md"><span class="num">07</span> Dispo Blowout</a></li>
-          <li><a href="articles/presentations/08-featured-pro-listings.md"><span class="num">08</span> Featured and Pro Listings</a></li>
-        </ul>
-      </div>
-
-      <!-- Tokens &amp; Billing -->
-      <div class="cluster-card">
-        <h3>💰 Tokens &amp; Billing</h3>
-        <div class="count">5 articles</div>
-        <ul>
-          <li><a href="articles/tokens-billing/01-token-costs-reference.md"><span class="num">01</span> Token Costs Reference</a></li>
-          <li><a href="articles/tokens-billing/02-buying-token-bundles.md"><span class="num">02</span> Buying Token Bundles</a></li>
-          <li><a href="articles/tokens-billing/03-premier-plus-plans.md"><span class="num">03</span> Premier Plus and Plans</a></li>
-          <li><a href="articles/tokens-billing/04-earning-tokens.md"><span class="num">04</span> Earning Tokens Through Actions</a></li>
-          <li><a href="articles/tokens-billing/05-promo-discount-codes.md"><span class="num">05</span> Promo and Discount Codes</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-
-
-  <footer>
-    <div class="container">
-      <p>ReiSearch Help Center · <a href="https://github.com/rescoShad/reiserch-help-center">GitHub</a></p>
-      <p style="margin-top:4px;font-size:0.8rem;">Built by Neo · Updated regularly</p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <div class="footer">© 2026 ReiSearch. All rights reserved.</div>
+  </div>
 </body>
 </html>
