@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding your dashboard — Help Center</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f7faff;color:#020617;line-height:1.5;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;font:inherit;color:inherit;background:none;border:none}
+    svg{display:block;flex-shrink:0}
+    .page{min-height:100vh;background:#f7faff}
+    .container{max-width:1500px;margin:0 auto;padding:0 24px}
+    .main-grid{display:grid;grid-template-columns:1fr;gap:20px;padding:24px}
+    @media(min-width:1024px){.main-grid{grid-template-columns:280px minmax(0,1fr) 250px}}
+    .header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(226,232,240,.8);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+    .header-inner{display:flex;align-items:center;gap:20px;padding:16px 24px;max-width:1500px;margin:0 auto}
+    .header-left{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand-group{display:flex;align-items:center;gap:12px}
+    .brand-sub{font-size:14px;font-weight:500;color:#475569}
+    .search-bar{display:none;align-items:center;width:100%;max-width:512px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05);margin:0 auto}
+    @media(min-width:768px){.search-bar{display:flex}}
+    .search-icon{width:16px;height:16px;color:#94a3b8;margin-right:12px}
+    .search-placeholder{font-size:14px;color:#64748b}
+    .header-btn{display:none;padding:10px 16px;border-radius:12px;background:#2563eb;color:#fff;font-size:14px;font-weight:600;box-shadow:0 4px 6px -1px rgba(37,99,235,.2);transition:background .15s}
+    .header-btn:hover{background:#1d4ed8}
+    @media(min-width:768px){.header-btn{display:block}}
+    .avatar{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#eff6ff;font-size:12px;font-weight:700;color:#1d4ed8}
+    .ml-auto{margin-left:auto}
+    .sidebar{display:none}
+    @media(min-width:1024px){.sidebar{display:block}}
+    .sidebar-sticky{position:sticky;top:96px}
+    .sidebar-card{border:1px solid #e2e8f0;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .nav-group{border-bottom:1px solid #f1f5f9;padding:16px;display:flex;align-items:center;justify-content:space-between}
+    .nav-group:last-child{border-bottom:none}
+    .nav-label{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.05em;color:#475569}
+    .nav-icon{width:16px;height:16px;color:#2563eb}
+    .nav-arrow{color:#94a3b8;font-size:12px}
+    .nav-links{margin-top:16px;border-left:1px solid #e2e8f0;padding-left:12px;display:flex;flex-direction:column;gap:4px}
+    .nav-link{display:block;width:100%;padding:8px 12px;border-radius:12px;text-align:left;font-size:14px;color:#475569;transition:background .15s}
+    .nav-link:hover{background:#f8fafc}
+    .nav-link.active{background:#eff6ff;font-weight:600;color:#1d4ed8}
+    .support-card{margin:16px;padding:16px;border:1px solid #e2e8f0;border-radius:16px;background:#f8fafc}
+    .support-card h3{font-size:14px;font-weight:700;color:#020617;margin-bottom:4px}
+    .support-card p{font-size:14px;line-height:1.5;color:#475569}
+    .support-btn{width:100%;margin-top:16px;padding:8px 16px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s}
+    .support-btn:hover{background:#eff6ff}
+    .article{min-width:0;border:1px solid #e2e8f0;border-radius:24px;background:#fff;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    @media(min-width:768px){.article{padding:32px}}
+    .breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:20px;font-size:14px}
+    .breadcrumb-link{font-weight:500;color:#1d4ed8}
+    .breadcrumb-current{color:#64748b}
+    .chevron-icon{width:16px;height:16px;color:#94a3b8}
+    .hero{border:1px solid #bfdbfe;border-radius:24px;background:linear-gradient(135deg,#eff6ff,#fff,#eff6ff);padding:28px;overflow:hidden}
+    @media(min-width:768px){.hero{padding:32px}}
+    .hero-grid{display:grid;gap:32px}
+    @media(min-width:768px){.hero-grid{grid-template-columns:1fr 320px;align-items:center}}
+    .hero-badge{display:inline-flex;padding:4px 12px;border-radius:999px;background:#dbeafe;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1d4ed8}
+    .hero-title{max-width:42rem;margin-top:20px;font-size:36px;font-weight:700;letter-spacing:-.025em;color:#020617}
+    @media(min-width:768px){.hero-title{font-size:48px}}
+    .hero-desc{max-width:42rem;margin-top:16px;font-size:16px;line-height:1.75;color:#475569}
+    .hero-meta{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;color:#64748b}
+    .clock-icon{width:16px;height:16px}
+    .hero-card{display:none;position:relative;height:224px;border-radius:24px;background:#fff;padding:20px;box-shadow:0 10px 15px -3px rgba(37,99,235,.25)}
+    @media(min-width:768px){.hero-card{display:block}}
+    .hero-card-blob1{position:absolute;top:-16px;right:-16px;width:80px;height:80px;border-radius:50%;background:rgba(37,99,235,.1)}
+    .hero-card-blob2{position:absolute;bottom:-20px;left:40px;width:96px;height:96px;border-radius:50%;background:rgba(37,99,235,.15)}
+    .hero-card-inner{position:relative;margin:16px auto 0;display:flex;flex-direction:column;width:224px;height:160px;border:1px solid #bfdbfe;border-radius:24px;background:#fff;padding:20px;transform:rotate(3deg);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}
+    .hero-card-bar{width:80px;height:12px;border-radius:999px;background:#dbeafe;margin-bottom:20px}
+    .hero-card-icon-wrap{margin:0 auto;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#dbeafe;color:#1d4ed8}
+    .hero-card-icon-wrap svg{width:28px;height:28px}
+    .hero-card-footer{border:1px solid #e2e8f0;border-radius:16px;padding:12px;margin-top:20px}
+    .hero-card-footer-bar1{width:112px;height:8px;border-radius:999px;background:#e2e8f0}
+    .hero-card-footer-bar2{width:80px;height:8px;border-radius:999px;background:#bfdbfe;margin-top:8px}
+    .section{margin-top:32px}
+    .section-title{font-size:20px;font-weight:700;letter-spacing:-.025em;color:#020617;margin-bottom:16px}
+    .card{border:1px solid #e2e8f0;border-radius:16px;padding:20px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .card+.card{margin-top:12px}
+    .card-title{font-size:16px;font-weight:700;color:#020617;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+    .card-body{font-size:14px;line-height:1.6;color:#475569}
+    .card-body ul{margin-top:8px;padding-left:20px;list-style:none}
+    .card-body ul li{padding:6px 0;font-size:14px;color:#475569;line-height:1.5}
+    .card-body ul li::before{content:"• ";color:#2563eb;font-weight:700}
+    .card-body ul li strong{color:#020617}
+    .card-body p{margin-bottom:8px}
+    .card-body p:last-child{margin-bottom:0}
+    .bullet-list{list-style:none;margin-top:8px}
+    .bullet-list li{padding:5px 0;font-size:14px;color:#475569;line-height:1.5}
+    .bullet-list li::before{content:"• ";color:#2563eb;font-weight:700}
+    .bullet-list li strong{color:#020617}
+    .related-section{margin-top:32px}
+    .related-title{font-size:20px;font-weight:700;letter-spacing:-.025em;color:#020617}
+    .related-grid{display:grid;gap:16px;margin-top:16px}
+    @media(min-width:768px){.related-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1280px){.related-grid{grid-template-columns:repeat(4,1fr)}}
+    .related-card{padding:16px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;text-align:left;transition:border-color .15s,background .15s}
+    .related-card:hover{border-color:#bfdbfe;background:rgba(239,246,255,.4)}
+    .related-icon{width:24px;height:24px;color:#1d4ed8}
+    .related-card-title{margin-top:16px;font-size:14px;font-weight:700;color:#020617}
+    .related-card-body{margin-top:4px;font-size:12px;line-height:1.25;color:#475569}
+    .related-card-link{margin-top:16px;font-size:14px;font-weight:600;color:#1d4ed8}
+    .feedback{margin-top:32px;display:flex;flex-direction:column;gap:16px;padding:20px;border:1px solid #e2e8f0;border-radius:16px;background:#f8fafc}
+    @media(min-width:768px){.feedback{flex-direction:row;align-items:center;justify-content:space-between}}
+    .feedback-title{font-weight:700;color:#020617}
+    .feedback-desc{margin-top:4px;font-size:14px;color:#475569}
+    .feedback-btns{display:flex;gap:12px}
+    .fb-btn{display:flex;align-items:center;gap:8px;padding:8px 20px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s}
+    .fb-btn:hover{background:#eff6ff}
+    .fb-btn svg{width:16px;height:16px}
+    .right-sidebar{display:none}
+    @media(min-width:1280px){.right-sidebar{display:block}}
+    .right-sticky{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px}
+    .toc-card{padding:20px;border:1px solid #e2e8f0;border-radius:24px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .toc-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#334155}
+    .toc-list{margin-top:20px;border-left:1px solid #e2e8f0;padding-left:16px;display:flex;flex-direction:column;gap:16px}
+    .toc-item{display:block;text-align:left;font-size:14px;color:#475569;transition:color .15s}
+    .toc-item:hover{color:#1d4ed8}
+    .toc-item.active{font-weight:600;color:#1d4ed8}
+    .promo-card{padding:20px;border:1px solid #e2e8f0;border-radius:24px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .promo-icon-wrap{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#eff6ff;color:#1d4ed8}
+    .promo-icon-wrap svg{width:20px;height:20px}
+    .promo-title{margin-top:20px;font-weight:700;color:#020617}
+    .promo-desc{margin-top:8px;font-size:14px;line-height:1.5;color:#475569}
+    .promo-btn{width:100%;margin-top:20px;padding:8px 16px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s;display:block;text-align:center}
+    .promo-btn:hover{background:#eff6ff}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- ── Header ── -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="header-left">
+          <img src="/logo.png" alt="ReiSearch" style="height:32px;width:auto">
+          <div class="brand-group">
+            <span class="brand-sub">Help Center</span>
+          </div>
+        </a>
+        <div class="search-bar">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <span class="search-placeholder">Search help articles...</span>
+        </div>
+        <a href="https://app.reisearch.io" class="header-btn ml-auto">Visit ReiSearch ↗</a>
+        <div class="avatar">RS</div>
+      </div>
+    </header>
+
+    <!-- ── Main ── -->
+    <main class="main-grid container">
+
+      <!-- ── Left Sidebar ── -->
+      <aside class="sidebar">
+        <div class="sidebar-sticky">
+          <div class="sidebar-card">
+            <nav aria-label="Help navigation">
+              <div class="nav-group">
+                <button class="nav-label">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/>
+                  </svg>
+                  GET STARTED
+                </button>
+                <span class="nav-arrow">⌄</span>
+              </div>
+              <div style="padding:0 16px 16px;border-bottom:1px solid #f1f5f9">
+                <div class="nav-links">
+                  <a href="/articles/getting-started/01-creating-account" class="nav-link">Creating your ReiSearch account</a>
+                  <a href="/articles/getting-started/02-dashboard-overview" class="nav-link active">Understanding your dashboard</a>
+                  <a href="#" class="nav-link">Completing your profile</a>
+                  <a href="#" class="nav-link">Your first property</a>
+                  <a href="#" class="nav-link">How to run comps</a>
+                  <a href="#" class="nav-link">Your first presentation</a>
+                  <a href="#" class="nav-link">Inviting team members</a>
+                </div>
+              </div>
+              <div class="nav-group">
+                <button class="nav-label">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>
+                  </svg>
+                  ACCOUNT & PROFILE
+                </button>
+                <span class="nav-arrow">⌄</span>
+              </div>
+              <div class="nav-group">
+                <button class="nav-label">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/>
+                  </svg>
+                  PROPERTIES
+                </button>
+                <span class="nav-arrow">⌄</span>
+              </div>
+              <div class="nav-group">
+                <button class="nav-label">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/>
+                  </svg>
+                  COMPS & UNDERWRITING
+                </button>
+                <span class="nav-arrow">⌄</span>
+              </div>
+              <div class="nav-group">
+                <button class="nav-label">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.05.05a2 2 0 1 1-2.83 2.83l-.05-.05A1.8 1.8 0 0 0 15 19.4a1.8 1.8 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.08a1.8 1.8 0 0 0-1-1.6 1.8 1.8 0 0 0-1.98.36l-.05.05a2 2 0 1 1-2.83-2.83l.05-.05A1.8 1.8 0 0 0 4.6 15a1.8 1.8 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.08a1.8 1.8 0 0 0 1.6-1 1.8 1.8 0 0 0-.36-1.98l-.05-.05a2 2 0 1 1 2.83-2.83l.05.05A1.8 1.8 0 0 0 9 4.6a1.8 1.8 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.08a1.8 1.8 0 0 0 1 1.6 1.8 1.8 0 0 0 1.98-.36l.05-.05a2 2 0 1 1 2.83 2.83l-.05.05A1.8 1.8 0 0 0 19.4 9c.1.36.3.7.6 1H21a2 2 0 1 1 0 4h-.08a1.8 1.8 0 0 0-1.52 1Z"/>
+                  </svg>
+                  SETTINGS
+                </button>
+                <span class="nav-arrow">⌄</span>
+              </div>
+              <div class="nav-group">
+                <button class="nav-label">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4.7 1.8c-1.4 1.1-2.2 1.5-2.2 3.2"/><path d="M12 17h.01"/>
+                  </svg>
+                  SUPPORT
+                </button>
+                <span class="nav-arrow">⌄</span>
+              </div>
+            </nav>
+            <div class="support-card">
+              <h3>Still need help?</h3>
+              <p>Our support team is here for you.</p>
+              <button class="support-btn">Contact Support</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ── Article ── -->
+      <article class="article">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+          <a href="/" class="breadcrumb-link">Help Center</a>
+          <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+          <span class="breadcrumb-current">Understanding your dashboard</span>
+        </div>
+
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-grid">
+            <div>
+              <span class="hero-badge">Getting Started</span>
+              <h1 class="hero-title">Understanding your dashboard</h1>
+              <p class="hero-desc">Get oriented with the ReiSearch Dashboard and find your way to every major feature.</p>
+              <div class="hero-meta">
+                <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+                </svg>
+                <span>5 min read</span>
+              </div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-blob1"></div>
+              <div class="hero-card-blob2"></div>
+              <div class="hero-card-inner">
+                <div class="hero-card-bar"></div>
+                <div class="hero-card-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/>
+                  </svg>
+                </div>
+                <div class="hero-card-footer">
+                  <div class="hero-card-footer-bar1"></div>
+                  <div class="hero-card-footer-bar2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Intro -->
+        <div class="section">
+          <p style="font-size:16px;line-height:1.75;color:#475569">
+            The Dashboard is the first screen you see after logging in. It is your command center: profile status, property cards, token balance, notifications, and quick actions all in one place.
+          </p>
+        </div>
+
+        <!-- Left Sidebar -->
+        <section class="section">
+          <h2 class="section-title">Left Sidebar</h2>
+          <div class="card">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9 3v18"/>
+              </svg>
+              Navigation sections
+            </div>
+            <div class="card-body">
+              <p>The sidebar is your primary navigation. Every major section is listed here:</p>
+              <ul class="bullet-list">
+                <li><strong>Dashboard</strong> — Your current view.</li>
+                <li><strong>Directory</strong> — Searchable database of all ReiSearch users.</li>
+                <li><strong>Profile</strong> — Your public profile page.</li>
+                <li><strong>Network</strong> — Your connections, buyers, team, and invitations.</li>
+                <li><strong>Marketplace</strong> — Map-based property listings from all users.</li>
+                <li><strong>Properties</strong> — Your property drafts, shared properties, published listings, offers, and folders.</li>
+                <li><strong>Presentations</strong> — Your deal presentations and the Offer Accelerator tool.</li>
+                <li><strong>App Center</strong> — Third-party integrations hub.</li>
+                <li><strong>Settings</strong> — Account, profile, billing, and support.</li>
+                <li><strong>Support</strong> — Help center and contact options.</li>
+              </ul>
+              <p style="margin-top:12px">The sidebar also shows your token balance, an upgrade plan banner (Free plan users), and a light/dark theme toggle at the bottom.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Top Header -->
+        <section class="section">
+          <h2 class="section-title">Top Header</h2>
+          <div class="card">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18"/><path d="M3 12h18"/>
+              </svg>
+              Header elements
+            </div>
+            <div class="card-body">
+              <p>The header bar appears on every page. It contains:</p>
+              <ul class="bullet-list">
+                <li><strong>Universal Search Bar</strong> — Search across people, properties, cities, and ZIP codes. Results appear as you type, grouped by category.</li>
+                <li><strong>Messages Icon</strong> — Quick access to messaging with an unread count badge.</li>
+                <li><strong>Notifications Bell</strong> — Alerts for comp results, property shares, connection requests, and buy box matches.</li>
+                <li><strong>Grid Menu</strong> — A quick-access grid of navigation shortcuts.</li>
+                <li><strong>User Avatar</strong> — Your profile photo with a dropdown for profile and account options.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Profile Card -->
+        <section class="section">
+          <h2 class="section-title">Profile Card</h2>
+          <div class="card">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>
+              </svg>
+              Profile Card (Top Left)
+            </div>
+            <div class="card-body">
+              <p>Shows your profile photo, name, profile completion percentage, and verification badge. Click through to complete your profile.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Token Wallet -->
+        <section class="section">
+          <h2 class="section-title">Token Wallet</h2>
+          <div class="card">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="6" width="22" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M12 9v6"/><path d="M9 12h6"/>
+              </svg>
+              Tokens Wallet Card
+            </div>
+            <div class="card-body">
+              <p>Displays your total token balance and current plan name (Free, Starter, Core, or Scale). Click to view billing details and purchase tokens.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Onboarding Checklist -->
+        <section class="section">
+          <h2 class="section-title">Account Setup Checklist</h2>
+          <div class="card">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/>
+              </svg>
+              Onboarding checklist
+            </div>
+            <div class="card-body">
+              <p>A guided onboarding checklist with four categories:</p>
+              <ul class="bullet-list">
+                <li><strong>Profile Setup</strong> — Upload picture, public info, social media, expertise, buy box.</li>
+                <li><strong>Networking Actions</strong> — First connection, explore Directory, invite contacts, add buyer buy box.</li>
+                <li><strong>Property Tools</strong> — Add a draft, share a property, publish to Marketplace.</li>
+                <li><strong>Communications</strong> — Messages, property threads, notifications.</li>
+              </ul>
+              <p style="margin-top:12px">Each category shows a completion percentage. Click any item to jump directly to that task.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="section">
+          <h2 class="section-title">Quick Action Cards</h2>
+          <div class="card">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/>
+              </svg>
+              Quick actions
+            </div>
+            <div class="card-body">
+              <p>Three cards for fast access to core workflows:</p>
+              <ul class="bullet-list">
+                <li><strong>Add New Property</strong> — Start creating a property draft. Includes a Quick Tour button for first-time users.</li>
+                <li><strong>Expand Your Network</strong> — Opens the Directory for finding and connecting with other REI professionals.</li>
+                <li><strong>Create Buy Box</strong> — Opens the buy box form to define your investment criteria.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Property Cards -->
+        <section class="section">
+          <h2 class="section-title">Property Cards Carousel</h2>
+          <div class="card">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/>
+              </svg>
+              Property carousel
+            </div>
+            <div class="card-body">
+              <p>A horizontal scrollable row of property cards. Use the tabs to filter: Drafts, Shared, Published, Offers, View All, My Folder, Address Requests.</p>
+              <p style="margin-top:8px">Each card shows the property photo, price, deal type badge (color-coded), address, beds/baths/square footage, and shared-with avatars.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notifications / Contacts -->
+        <section class="section">
+          <h2 class="section-title">Notifications &amp; Contacts</h2>
+          <div class="card">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+              Notifications Panel
+            </div>
+            <div class="card-body">
+              <p>Located on the right side. Shows real-time notifications for comp results, property shares, connection requests, and system alerts. Each one has a timestamp and dismiss option.</p>
+              <p style="margin-top:8px">If Google Contacts are connected, the right sidebar also shows imported contacts with an Invite button per contact.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feedback Button -->
+        <section class="section">
+          <h2 class="section-title">Feedback</h2>
+          <div class="card">
+            <div class="card-body">
+              <p>Found in the sidebar footer. Use the Feedback button to submit product feedback or report issues.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Related articles -->
+        <section class="related-section">
+          <h2 class="related-title">Related articles</h2>
+          <div class="related-grid">
+            <div class="related-card">
+              <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>
+              </svg>
+              <h3 class="related-card-title">Creating your ReiSearch account</h3>
+              <p class="related-card-body">Sign up for ReiSearch and complete your initial login setup.</p>
+              <a href="/articles/getting-started/01-creating-account" class="related-card-link">Read article →</a>
+            </div>
+            <div class="related-card">
+              <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>
+              </svg>
+              <h3 class="related-card-title">Completing your profile</h3>
+              <p class="related-card-body">Update your personal info, password, and preferences.</p>
+              <a href="#" class="related-card-link">Read article →</a>
+            </div>
+            <div class="related-card">
+              <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/>
+              </svg>
+              <h3 class="related-card-title">Running your first comps</h3>
+              <p class="related-card-body">Run an AI-powered comparable market analysis in under 60 seconds.</p>
+              <a href="#" class="related-card-link">Read article →</a>
+            </div>
+            <div class="related-card">
+              <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/>
+              </svg>
+              <h3 class="related-card-title">Your first property</h3>
+              <p class="related-card-body">Add a new property draft to start your deal workflow.</p>
+              <a href="#" class="related-card-link">Read article →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feedback -->
+        <section class="feedback">
+          <div>
+            <h3 class="feedback-title">Was this helpful?</h3>
+            <p class="feedback-desc">Your feedback helps us improve our help center.</p>
+          </div>
+          <div class="feedback-btns">
+            <button class="fb-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 21H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3"/><path d="M10 11V6a3 3 0 0 1 3-3l1 5h4a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7v-8h3Z"/>
+              </svg>
+              Yes
+            </button>
+            <button class="fb-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 3H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h3"/><path d="M10 13v5a3 3 0 0 0 3 3l1-5h4a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7v8h3Z"/>
+              </svg>
+              No
+            </button>
+          </div>
+        </section>
+
+      </article>
+
+      <!-- ── Right Sidebar ── -->
+      <aside class="right-sidebar">
+        <div class="right-sticky">
+          <div class="toc-card">
+            <h2 class="toc-label">On this page</h2>
+            <nav class="toc-list" aria-label="On this page">
+              <a href="#left-sidebar" class="toc-item active">Left Sidebar</a>
+              <a href="#top-header" class="toc-item">Top Header</a>
+              <a href="#profile-card" class="toc-item">Profile Card</a>
+              <a href="#token-wallet" class="toc-item">Token Wallet</a>
+              <a href="#onboarding-checklist" class="toc-item">Account Setup Checklist</a>
+              <a href="#quick-actions" class="toc-item">Quick Action Cards</a>
+              <a href="#property-carousel" class="toc-item">Property Cards Carousel</a>
+              <a href="#notifications-contacts" class="toc-item">Notifications &amp; Contacts</a>
+              <a href="#feedback" class="toc-item">Feedback</a>
+            </nav>
+          </div>
+          <div class="promo-card">
+            <div class="promo-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/>
+              </svg>
+            </div>
+            <h3 class="promo-title">New to ReiSearch?</h3>
+            <p class="promo-desc">Explore the platform and see how ReiSearch can power your next deal.</p>
+            <a href="https://app.reisearch.io" class="promo-btn">Visit ReiSearch ↗</a>
+          </div>
+        </div>
+      </aside>
+
+    </main>
+  </div>
+</body>
+</html>
