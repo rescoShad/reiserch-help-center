@@ -1,329 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ReiSearch Help Center</title>
-  <link rel="icon" href="/logo.png" />
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f7faff;color:#020617;line-height:1.5;min-height:100vh;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    button{cursor:pointer;font:inherit;color:inherit;background:none;border:none}
-    svg{display:block;flex-shrink:0}
-    img{max-width:100%;height:auto}
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ReiSearch Help Center</title>
+<link rel="icon" href="/logo.png"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f7faff;color:#020617;line-height:1.5;min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button{cursor:pointer;font:inherit;color:inherit;background:none;border:none}svg{display:block;flex-shrink:0}
+img{max-width:100%;height:auto}
 
-    /* Header */
-    .header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(226,232,240,.8);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-    .header-inner{display:flex;align-items:center;gap:20px;padding:16px 24px;max-width:1500px;margin:0 auto}
-    .header-left{text-decoration:none;display:flex;align-items:flex-end;gap:12px}
-    .brand-sub{font-size:14px;font-weight:500;color:#475569}
-    .header-search{display:none;align-items:center;width:100%;max-width:512px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05);margin:0 auto}
-    @media(min-width:768px){.header-search{display:flex}}
-    .hsearch-icon{width:16px;height:16px;color:#94a3b8;margin-right:12px}
-    .hsearch-pl{font-size:14px;color:#64748b}
-    .header-btn{display:none;padding:10px 16px;border-radius:12px;background:#2563eb;color:#fff;font-size:14px;font-weight:600;box-shadow:0 4px 6px -1px rgba(37,99,235,.2);transition:background .15s;white-space:nowrap}
-    .header-btn:hover{background:#1d4ed8}
-    @media(min-width:768px){.header-btn{display:block}}
-    .ml-auto{margin-left:auto}
+/* Header */
+.header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(226,232,240,.8);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.h-inner{display:flex;align-items:center;gap:20px;padding:16px 24px;max-width:1500px;margin:0 auto}
+.h-left{display:flex;align-items:center;gap:3px}
+.h-logo{height:36px;width:auto;display:block}
+.h-brand{font-size:24px;font-weight:700;letter-spacing:-.025em;color:#020617}
+.h-sep{width:1px;height:24px;background:#e2e8f0;margin:0 12px}
+.h-sub{font-size:14px;font-weight:500;color:#475569}
+.h-right{display:flex;align-items:center;gap:16px;margin-left:auto}
+.h-btn{display:none;padding:10px 16px;border-radius:12px;border:1px solid #bfdbfe;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s;white-space:nowrap}
+.h-btn:hover{background:#eff6ff}
+@media(min-width:768px){.h-btn{display:block}}
+.h-avatar{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#eff6ff;font-size:12px;font-weight:700;color:#1d4ed8}
 
-    /* Hero */
-    .hero{padding:64px 24px 48px;text-align:center;max-width:800px;margin:0 auto}
-    .hero-badge{display:inline-flex;padding:4px 14px;border-radius:999px;background:#dbeafe;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1d4ed8;margin-bottom:16px}
-    .hero h1{font-size:44px;font-weight:700;letter-spacing:-.03em;color:#020617;line-height:1.15}
-    @media(min-width:640px){.hero h1{font-size:52px}}
-    .hero p{font-size:16px;line-height:1.7;color:#475569;max-width:560px;margin:16px auto 32px}
+/* Hero */
+.hero-sec{position:relative;overflow:hidden;border-bottom:1px solid #e2e8f0;background:#fff}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-blur1{position:absolute;left:-96px;top:40px;width:288px;height:288px;border-radius:50%;background:rgba(219,234,254,.7);filter:blur(64px)}
+.hero-blur2{position:absolute;right:-96px;top:0;width:320px;height:320px;border-radius:50%;background:rgba(219,234,254,.7);filter:blur(64px)}
+.hero-glow{position:absolute;inset-x:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#bfdbfe,transparent)}
+.hero-inner{position:relative;max-width:1500px;margin:0 auto;padding:56px 24px 40px;text-align:center}
+@media(min-width:768px){.hero-inner{padding:80px 24px}}
+.hero-h1{font-size:36px;font-weight:800;letter-spacing:-.025em;color:#020617}
+@media(min-width:768px){.hero-h1{font-size:60px}}
+.hero-p{margin:16px auto 0;max-width:512px;font-size:16px;line-height:1.75;color:#475569}
+@media(min-width:768px){.hero-p{font-size:18px}}
 
-    /* Search */
-    .search-wrap{position:relative;max-width:560px;margin:0 auto}
-    .search-input{width:100%;padding:16px 20px 16px 52px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;font-size:16px;color:#020617;box-shadow:0 4px 6px -1px rgba(0,0,0,.06);outline:none;transition:border-color .2s,box-shadow .2s}
-    .search-input:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
-    .search-input::placeholder{color:#94a3b8}
-    .search-icon-left{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:#94a3b8;pointer-events:none}
-    .search-count{margin-top:12px;font-size:13px;color:#94a3b8}
+/* Stats row */
+.stats{display:flex;justify-content:center;gap:12px;margin-top:28px}
+.stat-box{display:flex;align-items:center;gap:12px;padding:12px 20px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.stat-icon{width:20px;height:20px;color:#1d4ed8}
+.stat-num{font-size:18px;font-weight:700;line-height:1;color:#020617}
+.stat-label{margin-top:4px;font-size:12px;color:#64748b}
 
-    /* Content */
-    .content{max-width:1200px;margin:0 auto;padding:0 24px 64px}
+/* Search bar */
+.search-box{display:flex;align-items:center;max-width:512px;margin:28px auto 0;padding:16px 20px;border:1px solid #93c5fd;border-radius:16px;background:#fff;box-shadow:0 10px 15px -3px rgba(219,234,254,.7),0 4px 6px -4px rgba(0,0,0,.1);outline:4px solid #eff6ff}
+.search-icon-l{width:20px;height:20px;color:#94a3b8;flex-shrink:0;margin-right:12px}
+.search-text{font-size:14px;color:#64748b;flex:1}
+.search-btn{flex-shrink:0;padding:8px 16px;border-radius:12px;background:#2563eb;font-size:14px;font-weight:600;color:#fff;box-shadow:0 4px 6px -1px rgba(37,99,235,.2);transition:background .15s}
+.search-btn:hover{background:#1d4ed8}
 
-    /* Section header */
-    .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-    .section-head h2{font-size:20px;font-weight:700;color:#020617}
-    .section-head a{font-size:14px;font-weight:600;color:#2563eb;transition:color .15s}
-    .section-head a:hover{color:#1d4ed8}
+/* Content wrapper */
+.wrap{max-width:1500px;margin:0 auto;padding:32px 24px}
+@media(min-width:768px){.wrap{padding:40px 24px}}
 
-    /* Category cards */
-    .cat-grid{display:grid;gap:16px}
-    @media(min-width:540px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:900px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
-    .cat-card{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:24px;transition:border-color .2s,box-shadow .2s,transform .2s;cursor:pointer}
-    .cat-card:hover{border-color:#bfdbfe;box-shadow:0 8px 20px -8px rgba(37,99,235,.15);transform:translateY(-2px)}
-    .cat-card .icon-wrap{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-    .cat-card h3{font-size:16px;font-weight:700;color:#020617}
-    .cat-card .meta{display:flex;align-items:center;gap:12px;margin-top:8px}
-    .cat-card .count{font-size:13px;color:#64748b}
-    .cat-card .desc{font-size:13px;line-height:1.5;color:#64748b;margin-top:6px}
-    .cat-card .arrow{margin-top:16px;font-size:14px;font-weight:600;color:#2563eb;display:flex;align-items:center;gap:4px}
-    .cat-card:hover .arrow{color:#1d4ed8}
+/* Section headings */
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.sec-head h2{font-size:20px;font-weight:700;letter-spacing:-.025em;color:#020617}
+.sec-head a{font-size:14px;font-weight:600;color:#1d4ed8;transition:color .15s}
+.sec-head a:hover{color:#1e40af}
 
-    /* Quick start */
-    .quick-grid{display:grid;gap:16px}
-    @media(min-width:540px){.quick-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:900px){.quick-grid{grid-template-columns:repeat(4,1fr)}}
-    .quick-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
-    .quick-card:hover{border-color:#bfdbfe;box-shadow:0 8px 20px -8px rgba(37,99,235,.15);transform:translateY(-2px)}
-    .quick-card .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:700;margin-bottom:10px}
-    .quick-card h4{font-size:14px;font-weight:700;color:#020617}
-    .quick-card p{font-size:13px;line-height:1.4;color:#64748b;margin-top:4px}
+/* Category grid */
+.cat-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:768px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1280px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
+.cat-card{display:flex;align-items:center;gap:20px;padding:20px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.cat-card:hover{border-color:#bfdbfe;box-shadow:0 10px 15px -3px rgba(219,234,254,.6);transform:translateY(-2px)}
+.cat-icon-wrap{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#eff6ff;color:#1d4ed8;flex-shrink:0;transition:background .2s,color .2s}
+.cat-card:hover .cat-icon-wrap{background:#2563eb;color:#fff}
+.cat-icon-wrap svg{width:24px;height:24px}
+.cat-info{min-width:0}
+.cat-info h3{font-weight:700;color:#020617}
+.cat-desc{margin-top:4px;font-size:14px;line-height:1.25;color:#475569}
+.cat-count{margin-top:12px;font-size:14px;font-weight:600;color:#1d4ed8}
 
-    /* Popular */
-    .pop-grid{display:grid;gap:12px}
-    @media(min-width:540px){.pop-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:900px){.pop-grid{grid-template-columns:repeat(4,1fr)}}
-    .pop-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px;cursor:pointer;transition:border-color .2s,background .2s}
-    .pop-card:hover{border-color:#bfdbfe;background:rgba(239,246,255,.3)}
-    .pop-card .pop-icon{width:20px;height:20px;color:#1d4ed8;margin-bottom:10px}
-    .pop-card h4{font-size:13px;font-weight:600;color:#020617;line-height:1.4}
-    .pop-card .read-time{font-size:12px;color:#94a3b8;margin-top:6px}
+/* Quick start */
+.q-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:768px){.q-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1280px){.q-grid{grid-template-columns:repeat(5,1fr)}}
+.q-card{display:flex;align-items:center;gap:16px;padding:16px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s}
+.q-card:hover{border-color:#bfdbfe;background:rgba(239,246,255,.4);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}
+.q-icon-wrap{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#eff6ff;color:#1d4ed8;flex-shrink:0}
+.q-icon-wrap svg{width:20px;height:20px}
+.q-info{min-width:0;flex:1}
+.q-info h3{font-size:14px;font-weight:700;color:#020617;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.q-info p{margin-top:2px;font-size:12px;color:#475569;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.q-arrow{width:16px;height:16px;color:#94a3b8;flex-shrink:0;transition:transform .15s,color .15s}
+.q-card:hover .q-arrow{transform:translateX(2px);color:#1d4ed8}
 
-    /* Support CTA */
-    .support-cta{margin-top:48px;background:linear-gradient(135deg,#eff6ff,#fff,#eff6ff);border:1px solid #bfdbfe;border-radius:24px;padding:40px;text-align:center}
-    .support-cta h2{font-size:22px;font-weight:700;color:#020617}
-    .support-cta p{font-size:15px;line-height:1.6;color:#475569;max-width:480px;margin:12px auto 24px}
-    .support-cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .support-cta .btn-primary{padding:12px 24px;border-radius:12px;background:#2563eb;color:#fff;font-size:14px;font-weight:600;transition:background .15s}
-    .support-cta .btn-primary:hover{background:#1d4ed8}
-    .support-cta .btn-secondary{padding:12px 24px;border-radius:12px;border:1px solid #bfdbfe;background:#fff;color:#1d4ed8;font-size:14px;font-weight:600;transition:background .15s}
-    .support-cta .btn-secondary:hover{background:#eff6ff}
+/* Popular articles */
+.pop-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:768px){.pop-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1280px){.pop-grid{grid-template-columns:repeat(6,1fr)}}
+.pop-card{padding:20px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.pop-card:hover{border-color:#bfdbfe;box-shadow:0 10px 15px -3px rgba(219,234,254,.6);transform:translateY(-2px)}
+.pop-icon-wrap{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#eff6ff;color:#1d4ed8}
+.pop-icon-wrap svg{width:20px;height:20px}
+.pop-card h3{margin-top:16px;min-height:44px;font-size:14px;font-weight:700;line-height:1.25;color:#1d4ed8;transition:color .15s}
+.pop-card:hover h3{color:#1e40af}
+.pop-card p{margin-top:8px;min-height:42px;font-size:14px;line-height:1.5;color:#475569}
+.pop-tag{display:inline-flex;margin-top:16px;padding:4px 12px;border-radius:999px;background:#eff6ff;font-size:12px;font-weight:600;color:#1d4ed8}
 
-    /* Spacer */
-    .spacer32{margin-top:32px}
-    .spacer48{margin-top:48px}
-
-    /* Footer */
-    .footer{border-top:1px solid #e2e8f0;background:#fff;padding:24px;text-align:center;font-size:13px;color:#94a3b8}
-  </style>
+/* Bottom CTA grid */
+.btm-grid{display:grid;gap:16px;max-width:1500px;margin:0 auto;padding:0 24px 48px;grid-template-columns:1fr}
+@media(min-width:1024px){.btm-grid{grid-template-columns:1fr 1fr}}
+.btm-card{padding:28px;border:1px solid #e2e8f0;border-radius:24px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.btm-inner{display:flex;flex-direction:column;gap:24px}
+@media(min-width:768px){.btm-inner{flex-direction:row;align-items:center}}
+.btm-icon{display:flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:50%;background:#eff6ff;color:#1d4ed8;flex-shrink:0}
+.btm-icon svg{width:36px;height:36px}
+.btm-content{flex:1}
+.btm-content h2{font-size:20px;font-weight:700;color:#020617}
+.btm-content p{margin-top:8px;max-width:512px;font-size:14px;line-height:1.5;color:#475569}
+.btm-btn-primary{margin-top:20px;display:inline-flex;padding:12px 20px;border-radius:12px;background:#2563eb;font-size:14px;font-weight:600;color:#fff;box-shadow:0 4px 6px -1px rgba(37,99,235,.2);transition:background .15s}
+.btm-btn-primary:hover{background:#1d4ed8}
+.btm-btn-secondary{margin-top:20px;display:inline-flex;padding:12px 20px;border-radius:12px;border:1px solid #bfdbfe;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s}
+.btm-btn-secondary:hover{background:#eff6ff}
+.btm-vid-preview{display:none;width:192px;height:112px;border-radius:16px;border:1px solid #bfdbfe;background:rgba(219,234,254,.44);padding:12px;flex-shrink:0}
+@media(min-width:1024px){.btm-vid-preview{display:block}}
+.btm-dots{display:flex;gap:4px;margin-bottom:12px}
+.btm-dot{width:8px;height:8px;border-radius:50%;background:#bfdbfe}
+.btm-vid-frame{display:flex;align-items:center;justify-content:center;height:64px;border-radius:12px;background:#fff}
+.btm-play{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#2563eb;color:#fff}
+.btm-play svg{width:20px;height:20px}
+</style>
 </head>
 <body>
-  <div class="page">
-    <!-- Header -->
-    <header class="header">
-      <div class="header-inner">
-        <a href="/" class="header-left">
-          <img src="/logo.png" alt="ReiSearch" style="height:40px;width:auto;display:block">
-          <span class="brand-sub">Help Center</span>
-        </a>
-        <div class="header-search">
-          <svg class="hsearch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>
-          </svg>
-          <span class="hsearch-pl">Search help articles...</span>
-        </div>
-        <a href="https://reisearch.com" class="header-btn ml-auto">Visit ReiSearch ↗</a>
-      </div>
-    </header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <span class="hero-badge">Help Center</span>
-      <h1>How can we help you?</h1>
-      <p>Browse articles, guides, and troubleshooting for everything ReiSearch.</p>
-      <div class="search-wrap">
-        <svg class="search-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-        <input class="search-input" type="text" placeholder="Search help articles..." />
-        <p class="search-count">79 articles across 14 categories</p>
-      </div>
-    </section>
+<!-- Header -->
+<header class="header">
+<div class="h-inner">
+<a href="/" class="h-left">
+<img src="/logo.png" alt="ReiSearch" class="h-logo"/>
+<span class="h-brand">ReiSearch</span>
+<span class="h-sep"></span>
+<span class="h-sub">Help Center</span>
+</a>
+<div class="h-right">
+<a href="https://reisearch.com" class="h-btn">Visit ReiSearch ↗</a>
+<div class="h-avatar">JD</div>
+</div>
+</div>
+</header>
 
-    <!-- Content -->
-    <div class="content">
-      <!-- Browse by category -->
-      <div>
-        <div class="section-head">
-          <h2>Browse by category</h2>
-        </div>
-        <div class="cat-grid">
-          <a href="/articles/getting-started/01-creating-account" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">🚀</div>
-            <h3>Getting Started</h3>
-            <p class="meta"><span class="count">7 articles</span></p>
-            <p class="desc">Set up your account, explore the dashboard, and run your first search.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#4f46e5)">👤</div>
-            <h3>Account &amp; Profile</h3>
-            <p class="meta"><span class="count">5 articles</span></p>
-            <p class="desc">Manage your account settings and public profile.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">🏠</div>
-            <h3>Properties</h3>
-            <p class="meta"><span class="count">5 articles</span></p>
-            <p class="desc">Add, manage, and organize your property profiles.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">📊</div>
-            <h3>Comps &amp; Analysis</h3>
-            <p class="meta"><span class="count">7 articles</span></p>
-            <p class="desc">Run AI-powered comps and underwrite deals with confidence.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#4f46e5)">📄</div>
-            <h3>Presentations &amp; Dispo</h3>
-            <p class="meta"><span class="count">8 articles</span></p>
-            <p class="desc">Generate deal presentations and manage disposition.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">🤝</div>
-            <h3>Network</h3>
-            <p class="meta"><span class="count">7 articles</span></p>
-            <p class="desc">Connect with investors, agents, and partners.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">🎯</div>
-            <h3>Buy Boxes</h3>
-            <p class="meta"><span class="count">5 articles</span></p>
-            <p class="desc">Define buyer criteria and get matched automatically.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">🏪</div>
-            <h3>Marketplace</h3>
-            <p class="meta"><span class="count">5 articles</span></p>
-            <p class="desc">Browse, publish, and discover property listings.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#4f46e5)">🧩</div>
-            <h3>App Center</h3>
-            <p class="meta"><span class="count">7 articles</span></p>
-            <p class="desc">Explore integrations and third-party tools.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">💳</div>
-            <h3>Tokens &amp; Billing</h3>
-            <p class="meta"><span class="count">5 articles</span></p>
-            <p class="desc">Understand token costs, plans, and billing.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">📁</div>
-            <h3>Documents</h3>
-            <p class="meta"><span class="count">3 articles</span></p>
-            <p class="desc">Upload, organize, and manage documents.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">🔧</div>
-            <h3>Troubleshooting</h3>
-            <p class="meta"><span class="count">8 articles</span></p>
-            <p class="desc">Resolve common issues and get support.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#4f46e5)">⚙️</div>
-            <h3>Settings</h3>
-            <p class="meta"><span class="count">5 articles</span></p>
-            <p class="desc">Manage your account, notifications, and team.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">🤖</div>
-            <h3>Comps &amp; Underwriting</h3>
-            <p class="meta"><span class="count">7 articles</span></p>
-            <p class="desc">AI-powered analysis and multi-exit underwriting.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-          <a href="#" class="cat-card">
-            <div class="icon-wrap" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">🏠</div>
-            <h3>Property Workspace</h3>
-            <p class="meta"><span class="count">5 articles</span></p>
-            <p class="desc">Manage drafts, statuses, folders, and collaboration.</p>
-            <div class="arrow">Browse →</div>
-          </a>
-        </div>
-      </div>
+<!-- Hero -->
+<section class="hero-sec">
+<div class="hero-bg">
+<div class="hero-blur1"></div>
+<div class="hero-blur2"></div>
+<div class="hero-glow"></div>
+</div>
+<div class="hero-inner">
+<h1 class="hero-h1">How can we help?</h1>
+<p class="hero-p">Find guides, troubleshooting tips, and training articles to help you get the most out of ReiSearch.</p>
 
-      <!-- Quick start -->
-      <div class="spacer48">
-        <div class="section-head">
-          <h2>Quick start</h2>
-        </div>
-        <div class="quick-grid">
-          <a href="/articles/getting-started/01-creating-account" class="quick-card">
-            <div class="num">1</div>
-            <h4>Create your account</h4>
-            <p>Sign up and complete your first login in about two minutes.</p>
-          </a>
-          <a href="/articles/getting-started/02-dashboard-overview" class="quick-card">
-            <div class="num">2</div>
-            <h4>Explore the dashboard</h4>
-            <p>Get oriented with the command center and every major feature.</p>
-          </a>
-          <a href="/articles/getting-started/03-completing-profile" class="quick-card">
-            <div class="num">3</div>
-            <h4>Complete your profile</h4>
-            <p>Unlock Directory visibility, buy box matching, and network features.</p>
-          </a>
-          <a href="/articles/getting-started/04-first-property" class="quick-card">
-            <div class="num">4</div>
-            <h4>Add your first property</h4>
-            <p>Create a property draft with auto-filled tax record data.</p>
-          </a>
-        </div>
-      </div>
+<div class="stats">
+<div class="stat-box">
+<svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+<div class="text-left">
+<div class="stat-num">79</div>
+<div class="stat-label">Articles</div>
+</div>
+</div>
+<div class="stat-box">
+<svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+<div class="text-left">
+<div class="stat-num">13</div>
+<div class="stat-label">Categories</div>
+</div>
+</div>
+</div>
 
-      <!-- Popular articles -->
-      <div class="spacer48">
-        <div class="section-head">
-          <h2>Popular articles</h2>
-          <a href="/articles/getting-started/05-how-to-run-comps">View all →</a>
-        </div>
-        <div class="pop-grid">
-          <a href="/articles/getting-started/05-how-to-run-comps" class="pop-card">
-            <svg class="pop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/></svg>
-            <h4>How to run comps</h4>
-            <p class="read-time">4 min read</p>
-          </a>
-          <a href="/articles/getting-started/06-first-presentation" class="pop-card">
-            <svg class="pop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg>
-            <h4>Creating your first presentation</h4>
-            <p class="read-time">4 min read</p>
-          </a>
-          <a href="/articles/getting-started/07-inviting-team" class="pop-card">
-            <svg class="pop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
-            <h4>Inviting team members</h4>
-            <p class="read-time">4 min read</p>
-          </a>
-          <a href="/articles/getting-started/03-completing-profile" class="pop-card">
-            <svg class="pop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
-            <h4>Completing your profile</h4>
-            <p class="read-time">4 min read</p>
-          </a>
-        </div>
-      </div>
+<div class="search-box">
+<svg class="search-icon-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+<span class="search-text">Search help articles...</span>
+<button class="search-btn">Search</button>
+</div>
+</div>
+</section>
 
-      <!-- Support CTA -->
-      <div class="support-cta">
-        <h2>Still need help?</h2>
-        <p>Our support team is here for you. Get in touch and we'll get back to you quickly.</p>
-        <div class="btns">
-          <a href="mailto:support@reisearch.com" class="btn-primary">Contact Support →</a>
-          <a href="https://reisearch.com" class="btn-secondary">Visit ReiSearch ↗</a>
-        </div>
-      </div>
-    </div>
+<!-- Browse by category -->
+<div class="wrap">
+<div class="sec-head">
+<h2>Browse by category</h2>
+<a href="#">View all categories →</a>
+</div>
+<div class="cat-grid">
 
-    <!-- Footer -->
-    <div class="footer">© 2026 ReiSearch. All rights reserved.</div>
-  </div>
+<a href="/articles/getting-started/01-creating-account" class="cat-card">
+<div class="cat-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg>
+</div>
+<div class="cat-info">
+<h3>Getting Started</h3>
+<p class="cat-desc">New to ReiSearch? Start here.</p>
+<div class="cat-count">7 articles</div>
+</div>
+</a>
+
+<a href="/articles/getting-started/01-creating-account" class="cat-card">
+<div class="cat-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L3 18l3 3 6.1-6.1a4 4 0 0 0 5.6-5.6"/><path d="M15 5l4 4"/><path d="M18 2l4 4"/></svg>
+</div>
+<div class="cat-info">
+<h3>Troubleshooting</h3>
+<p class="cat-desc">Fix common issues and errors.</p>
+<div class="cat-count">8 articles</div>
+</div>
+</a>
+
+<a href="#" class="cat-card">
+<div class="cat-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+</div>
+<div class="cat-info">
+<h3>Account &amp; Settings</h3>
+<p class="cat-desc">Manage your account and preferences.</p>
+<div class="cat-count">5 articles</div>
+</div>
+</a>
+
+<a href="#" class="cat-card">
+<div class="cat-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/></svg>
+</div>
+<div class="cat-info">
+<h3>Property Workspace</h3>
+<p class="cat-desc">Organize and manage properties.</p>
+<div class="cat-count">5 articles</div>
+</div>
+</a>
+
+<a href="#" class="cat-card">
+<div class="cat-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16"/><path d="M5 10l1-6h12l1 6"/><path d="M6 10v10h12V10"/><path d="M9 20v-5h6v5"/></svg>
+</div>
+<div class="cat-info">
+<h3>Marketplace</h3>
+<p class="cat-desc">Find and manage marketplace listings.</p>
+<div class="cat-count">5 articles</div>
+</div>
+</a>
+
+<a href="#" class="cat-card">
+<div class="cat-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+</div>
+<div class="cat-info">
+<h3>App Center</h3>
+<p class="cat-desc">Connect and manage integrations.</p>
+<div class="cat-count">7 articles</div>
+</div>
+</a>
+
+<a href="#" class="cat-card">
+<div class="cat-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+</div>
+<div class="cat-info">
+<h3>Buy Boxes</h3>
+<p class="cat-desc">Create and analyze buy boxes.</p>
+<div class="cat-count">5 articles</div>
+</div>
+</a>
+
+<a href="#" class="cat-card">
+<div class="cat-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+</div>
+<div class="cat-info">
+<h3>Documents &amp; Images</h3>
+<p class="cat-desc">Upload, organize, and manage files.</p>
+<div class="cat-count">3 articles</div>
+</div>
+</a>
+
+</div>
+</div>
+
+<!-- Quick Start -->
+<div class="wrap" style="padding-top:0">
+<div class="sec-head">
+<h2>Quick Start</h2>
+</div>
+<div class="q-grid">
+
+<a href="/articles/getting-started/01-creating-account" class="q-card">
+<div class="q-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+</div>
+<div class="q-info">
+<h3>Create your account</h3>
+<p>Get started in minutes</p>
+</div>
+<svg class="q-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+</a>
+
+<a href="/articles/getting-started/02-dashboard-overview" class="q-card">
+<div class="q-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+</div>
+<div class="q-info">
+<h3>Dashboard overview</h3>
+<p>Explore key features</p>
+</div>
+<svg class="q-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+</a>
+
+<a href="/articles/getting-started/03-completing-profile" class="q-card">
+<div class="q-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+</div>
+<div class="q-info">
+<h3>Complete your profile</h3>
+<p>Add your information</p>
+</div>
+<svg class="q-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+</a>
+
+<a href="/articles/getting-started/05-how-to-run-comps" class="q-card">
+<div class="q-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/></svg>
+</div>
+<div class="q-info">
+<h3>Run comps</h3>
+<p>Analyze properties</p>
+</div>
+<svg class="q-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+</a>
+
+<a href="/articles/getting-started/06-first-presentation" class="q-card">
+<div class="q-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg>
+</div>
+<div class="q-info">
+<h3>Create your first presentation</h3>
+<p>Win more deals</p>
+</div>
+<svg class="q-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+</a>
+
+</div>
+</div>
+
+<!-- Popular articles -->
+<div class="wrap" style="padding-top:0">
+<div class="sec-head">
+<h2>Popular articles</h2>
+<a href="#">View all articles →</a>
+</div>
+<div class="pop-grid">
+
+<a href="/articles/getting-started/01-creating-account" class="pop-card">
+<div class="pop-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+</div>
+<h3>01 Creating Your ReiSearch Account</h3>
+<p>Step-by-step guide to create your ReiSearch account.</p>
+<span class="pop-tag">Getting Started</span>
+</a>
+
+<a href="/articles/getting-started/02-dashboard-overview" class="pop-card">
+<div class="pop-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+</div>
+<h3>02 Dashboard Overview</h3>
+<p>Get familiar with the ReiSearch dashboard and key features.</p>
+<span class="pop-tag">Getting Started</span>
+</a>
+
+<a href="/articles/getting-started/01-creating-account" class="pop-card">
+<div class="pop-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+</div>
+<h3>01 I Cannot Run a Comp</h3>
+<p>Troubleshoot common issues when running a comp.</p>
+<span class="pop-tag">Troubleshooting</span>
+</a>
+
+<a href="#" class="pop-card">
+<div class="pop-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+</div>
+<h3>03 Using AI Integrations</h3>
+<p>Learn how to use AI integrations to work smarter.</p>
+<span class="pop-tag">App Center</span>
+</a>
+
+<a href="/articles/getting-started/05-how-to-run-comps" class="pop-card">
+<div class="pop-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+</div>
+<h3>01 Run Comps</h3>
+<p>Learn how to run accurate comps in minutes.</p>
+<span class="pop-tag">Comps &amp; Analysis</span>
+</a>
+
+<a href="#" class="pop-card">
+<div class="pop-icon-wrap">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+</div>
+<h3>01 Public Profile</h3>
+<p>Set up and customize your public profile.</p>
+<span class="pop-tag">Account &amp; Settings</span>
+</a>
+
+</div>
+</div>
+
+<!-- Bottom CTA -->
+<div class="btm-grid">
+<div class="btm-card">
+<div class="btm-inner">
+<div class="btm-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"/><path d="M4 13v4a2 2 0 0 0 2 2h1v-7H6a2 2 0 0 0-2 1Z"/><path d="M20 13v4a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 1Z"/><path d="M13 21h2a5 5 0 0 0 5-5"/></svg>
+</div>
+<div class="btm-content">
+<h2>Still need help?</h2>
+<p>Our support team is here for you. Get personalized assistance from a real person.</p>
+<a href="mailto:support@reisearch.com" class="btm-btn-primary">Contact Support →</a>
+</div>
+</div>
+</div>
+
+<div class="btm-card">
+<div class="btm-inner">
+<div class="btm-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg>
+</div>
+<div class="btm-content">
+<h2>Watch video tutorials</h2>
+<p>Visual walkthroughs to help you learn faster and get the most out of ReiSearch.</p>
+<button class="btm-btn-secondary">Explore Tutorials →</button>
+</div>
+<div class="btm-vid-preview">
+<div class="btm-dots"><span class="btm-dot"></span><span class="btm-dot"></span><span class="btm-dot"></span></div>
+<div class="btm-vid-frame">
+<div class="btm-play"><svg viewBox="0 0 24 24" fill="#fff" stroke="none"><path d="m10 9 5 3-5 3V9Z"/></svg></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 </body>
 </html>
