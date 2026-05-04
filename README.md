@@ -27,6 +27,7 @@ Deployed at [help.reisearch.com](https://help.reisearch.com)
 - `index.html` — Homepage with category grid, quick starts, and popular articles
 - `articles/<category>/<slug>.md` — Markdown source files (add/edit content here)
 - `articles/<category>/<slug>.html` — Rendered article pages
+- `build_site.py` — Regenerates all article HTML pages and the 404 page from markdown + frontmatter
 
 ## Deploy
 
