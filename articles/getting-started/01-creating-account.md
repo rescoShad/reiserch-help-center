@@ -11,9 +11,9 @@ relatedArticles:
  - title: "Managing your profile"
    slug: "account/managing-your-profile"
  - title: "Understanding your dashboard"
-   slug: "getting-started/02-understanding-your-dashboard"
+   slug: "getting-started/02-dashboard-overview"
  - title: "Running your first comps"
-   slug: "comps/01-running-your-first-comps"
+   slug: "comps-analysis/01-how-to-run-comps"
 video:
  title: "Creating your ReiSearch account"
  url: ""

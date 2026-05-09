@@ -9,11 +9,11 @@ audience: "all"
 readingTime: "4 min read"
 relatedArticles:
  - title: "Navigating Settings"
-   slug: "settings/navigating-settings"
+   slug: "settings/01-navigating-settings"
  - title: "How to Update Your Profile"
-   slug: "settings/update-profile"
+   slug: "settings/02-update-profile"
  - title: "Managing Account Security"
-   slug: "settings/account-security"
+   slug: "settings/03-account-security"
 showToc: true
 showFeedback: true
 ---
