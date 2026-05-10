@@ -11,5 +11,8 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/articles/(.*)", "destination": "/articles/$1.html" }
   ]
 }
