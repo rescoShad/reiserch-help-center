@@ -1,334 +1,643 @@
-     1|     1|<!DOCTYPE html>
-     2|     2|<html lang="en">
-     3|     3|<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>ReiSearch Help Center</title><link rel="icon" href="/logo.png"/>
-     4|     4|<style>
-     5|     5|*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-     6|     6|body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f7faff;color:#020617;line-height:1.5;min-height:100vh}
-     7|     7|a{color:inherit;text-decoration:none}button{cursor:pointer;font:inherit;color:inherit;background:none;border:none}svg{display:block;flex-shrink:0}
-     8|     8|.header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(226,232,240,.8);background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-     9|     9|.h-inner{display:flex;align-items:center;gap:20px;padding:16px 24px;max-width:1500px;margin:0 auto}
-    10|    10|.h-left{display:flex;align-items:center;gap:3px;text-decoration:none;color:inherit}
-    11|    11|.h-logo{height:36px;width:auto;display:block}
-    12|    12|.h-brand{font-size:24px;font-weight:700;letter-spacing:-.025em;color:#020617}
-    13|    13|.h-sep{width:1px;height:24px;background:#e2e8f0;margin:0 12px}
-    14|    14|.h-sub{font-size:14px;font-weight:500;color:#475569}
-    15|    15|.h-right{display:flex;align-items:center;gap:16px;margin-left:auto}
-    16|    16|.h-btn{display:none;padding:10px 16px;border-radius:12px;border:1px solid #bfdbfe;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;white-space:nowrap;transition:background .15s}
-    17|    17|.h-btn:hover{background:#eff6ff}@media(min-width:768px){.h-btn{display:block}}
-    18|    18|.h-avatar{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#eff6ff;font-size:12px;font-weight:700;color:#1d4ed8}
-    19|    19|
-    20|    20|.hero-sec{position:relative;overflow:hidden;border-bottom:1px solid #e2e8f0;background:#fff}
-    21|    21|.hero-bg{position:absolute;inset:0;pointer-events:none}
-    22|    22|.hb1{position:absolute;left:-96px;top:20px;width:288px;height:288px;border-radius:50%;background:rgba(219,234,254,.6);filter:blur(64px)}
-    23|    23|.hb2{position:absolute;right:-96px;top:0;width:320px;height:320px;border-radius:50%;background:rgba(219,234,254,.6);filter:blur(64px)}
-    24|    24|.hg{position:absolute;inset-x:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#93c5fd,transparent)}
-    25|    25|.hero-inner{position:relative;max-width:1500px;margin:0 auto;padding:32px 24px;text-align:center}
-    26|    26|@media(min-width:768px){.hero-inner{padding:40px 24px}}
-    27|    27|.hh1{font-size:30px;font-weight:800;letter-spacing:-.025em;color:#020617}
-    28|    28|@media(min-width:768px){.hh1{font-size:48px}}
-    29|    29|.hp{margin:12px auto 0;max-width:512px;font-size:15px;line-height:1.6;color:#475569}
-    30|    30|.stats{display:flex;justify-content:center;gap:12px;margin-top:20px}
-    31|    31|.sb{display:flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
-    32|    32|.si{width:20px;height:20px;color:#1d4ed8}
-    33|    33|.sn{font-size:16px;font-weight:700;line-height:1;color:#020617}
-    34|    34|.sl{margin-top:3px;font-size:11px;color:#64748b}
-    35|    35|.sbox{display:flex;align-items:center;max-width:480px;margin:20px auto 0;padding:12px 16px;border:1px solid #93c5fd;border-radius:16px;background:#fff;box-shadow:0 10px 15px -3px rgba(219,234,254,.6);outline:4px solid #eff6ff}
-    36|    36|.si2{width:20px;height:20px;color:#94a3b8;flex-shrink:0;margin-right:12px}
-    37|    37|.st{font-size:14px;color:#64748b;flex:1}
-    38|    38|.sb2{flex-shrink:0;padding:8px 16px;border-radius:12px;background:#2563eb;font-size:14px;font-weight:600;color:#fff;box-shadow:0 4px 6px -1px rgba(37,99,235,.2);transition:background .15s}
-    39|    39|.sb2:hover{background:#1d4ed8}
-    40|    40|
-    41|    41|.wrap{max-width:1500px;margin:0 auto;padding:24px}
-    42|    42|
-    43|    43|.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-    44|    44|.sh h2{font-size:18px;font-weight:700;color:#020617}
-    45|    45|.sh a{font-size:13px;font-weight:600;color:#1d4ed8}
-    46|    46|.sh a:hover{color:#1e40af}
-    47|    47|
-    48|    48|.cg{display:grid;gap:16px;grid-template-columns:1fr}
-    49|    49|@media(min-width:768px){.cg{grid-template-columns:repeat(2,1fr)}}
-    50|    50|@media(min-width:1280px){.cg{grid-template-columns:repeat(4,1fr)}}
-    51|    51|.cc{border:1px solid #e2e8f0;border-radius:16px;background:#fff;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.05);transition:border-color .2s,box-shadow .2s}
-    52|    52|.cc:hover{border-color:#bfdbfe;box-shadow:0 10px 15px -3px rgba(219,234,254,.6)}
-    53|    53|.cc .top{display:flex;align-items:flex-start;gap:16px}
-    54|    54|.cc .iw{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#eff6ff;color:#1d4ed8;flex-shrink:0;transition:background .2s,color .2s}
-    55|    55|.cc:hover .iw{background:#2563eb;color:#fff}
-    56|    56|.cc .iw svg{width:24px;height:24px}
-    57|    57|.cc .ci{min-width:0}
-    58|    58|.cc .ci .ct{font-size:16px;font-weight:700;color:#020617;text-decoration:none;display:inline-block}
-    59|    59|.cc .ci .ct:hover{color:#1d4ed8}
-    60|    60|.cc .ci .cd{margin-top:4px;font-size:14px;line-height:1.25;color:#475569}
-    61|    61|.cc .ci .ccnt{margin-top:8px;font-size:14px;font-weight:600;color:#1d4ed8}
-    62|    62|.cc .sep{margin:16px 0;height:1px;background:#e2e8f0}
-    63|    63|.cc .al{list-style:none;display:flex;flex-direction:column;gap:8px}
-    64|    64|.cc .al li a{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;font-weight:500;line-height:1.25;color:#1d4ed8;text-decoration:none;transition:color .15s}
-    65|    65|.cc .al li a:hover{color:#1e40af}
-    66|    66|.cc .al li a .as{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
-    67|    67|.cc .al li a .ar{width:16px;height:16px;color:#3b82f6;flex-shrink:0;transition:transform .15s}
-    68|    68|.cc .al li a:hover .ar{transform:translateX(2px)}
-    69|    69|.cc .va{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:14px;font-weight:700;color:#1d4ed8;text-decoration:none;transition:color .15s}
-    70|    70|.cc .va:hover{color:#1e40af}
-    71|    71|
-    72|    72|.qg{display:grid;gap:16px;grid-template-columns:1fr}
-    73|    73|@media(min-width:768px){.qg{grid-template-columns:repeat(2,1fr)}}
-    74|    74|@media(min-width:1280px){.qg{grid-template-columns:repeat(4,1fr)}}
-    75|    75|.qc{display:flex;align-items:center;gap:16px;padding:16px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s;text-decoration:none}
-    76|    76|.qc:hover{border-color:#bfdbfe;background:rgba(239,246,255,.4);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}
-    77|    77|.qiw{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#eff6ff;color:#1d4ed8;flex-shrink:0}
-    78|    78|.qiw svg{width:20px;height:20px}
-    79|    79|.qi{min-width:0;flex:1}
-    80|    80|.qi h3{font-size:14px;font-weight:700;color:#020617;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    81|    81|.qi p{margin-top:2px;font-size:12px;color:#475569;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    82|    82|.qa{width:16px;height:16px;color:#94a3b8;flex-shrink:0;transition:transform .15s,color .15s}
-    83|    83|.qc:hover .qa{transform:translateX(2px);color:#1d4ed8}
-    84|    84|
-    85|    85|.pg{display:grid;gap:16px;grid-template-columns:1fr}
-    86|    86|@media(min-width:768px){.pg{grid-template-columns:repeat(2,1fr)}}
-    87|    87|@media(min-width:1280px){.pg{grid-template-columns:repeat(6,1fr)}}
-    88|    88|.pc{padding:20px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s;text-decoration:none;display:block}
-    89|    89|.pc:hover{border-color:#bfdbfe;box-shadow:0 10px 15px -3px rgba(219,234,254,.6);transform:translateY(-2px)}
-    90|    90|.piw{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#eff6ff;color:#1d4ed8}
-    91|    91|.piw svg{width:20px;height:20px}
-    92|    92|.pc h3{margin-top:16px;min-height:44px;font-size:14px;font-weight:700;line-height:1.25;color:#1d4ed8;transition:color .15s}
-    93|    93|.pc:hover h3{color:#1e40af}
-    94|    94|.pc p{margin-top:8px;min-height:42px;font-size:14px;line-height:1.5;color:#475569}
-    95|    95|.ptag{display:inline-flex;margin-top:16px;padding:4px 12px;border-radius:999px;background:#eff6ff;font-size:12px;font-weight:600;color:#1d4ed8}
-    96|    96|
-    97|    97|.bg{display:grid;gap:16px;max-width:1500px;margin:0 auto;padding:0 24px 48px;grid-template-columns:1fr}
-    98|    98|@media(min-width:1024px){.bg{grid-template-columns:1fr 1fr}}
-    99|    99|.bc{padding:28px;border:1px solid #e2e8f0;border-radius:24px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
-   100|   100|.bi{display:flex;flex-direction:column;gap:24px}@media(min-width:768px){.bi{flex-direction:row;align-items:center}}
-   101|   101|.bic{display:flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:50%;background:#eff6ff;color:#1d4ed8;flex-shrink:0}
-   102|   102|.bic svg{width:36px;height:36px}
-   103|   103|.bct{flex:1}
-   104|   104|.bct h2{font-size:20px;font-weight:700;color:#020617}
-   105|   105|.bct p{margin-top:8px;max-width:512px;font-size:14px;line-height:1.5;color:#475569}
-   106|   106|.bp{margin-top:20px;display:inline-flex;padding:12px 20px;border-radius:12px;background:#2563eb;font-size:14px;font-weight:600;color:#fff;box-shadow:0 4px 6px -1px rgba(37,99,235,.2);transition:background .15s;text-decoration:none}
-   107|   107|.bp:hover{background:#1d4ed8}
-   108|   108|.bs{margin-top:20px;display:inline-flex;padding:12px 20px;border-radius:12px;border:1px solid #bfdbfe;background:#fff;font-size:14px;font-weight:600;color:#1d4ed8;transition:background .15s;text-decoration:none}
-   109|   109|.bs:hover{background:#eff6ff}
-   110|   110|.bvp{display:none;width:192px;height:112px;border-radius:16px;border:1px solid #bfdbfe;background:rgba(219,234,254,.44);padding:12px;flex-shrink:0}
-   111|   111|@media(min-width:1024px){.bvp{display:block}}
-   112|   112|.bd{display:flex;gap:4px;margin-bottom:12px}
-   113|   113|.bd s{width:8px;height:8px;border-radius:50%;background:#bfdbfe;display:block}
-   114|   114|.bvf{display:flex;align-items:center;justify-content:center;height:64px;border-radius:12px;background:#fff}
-   115|   115|.bpl{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#2563eb;color:#fff}
-   116|   116|.bpl svg{width:20px;height:20px}
-   117|   117|</style></head>
-   118|   118|<body>
-   119|   119|<header class="header"><div class="h-inner">
-   120|   120|<a href="/" class="h-left"><img src="/logo.png" alt="ReiSearch" class="h-logo"/><span class="h-sub">Help Center</span></a>
-   121|   121|<div class="h-right"><a href="https://reisearch.com" class="h-btn">Visit ReiSearch ↗</a><div class="h-avatar">JD</div></div>
-   122|   122|</div></header>
-   123|   123|
-   124|   124|<section class="hero-sec"><div class="hero-bg"><div class="hb1"></div><div class="hb2"></div><div class="hg"></div></div>
-   125|   125|<div class="hero-inner">
-   126|   126|<h1 class="hh1">How can we help?</h1>
-   127|   127|<p class="hp">Find guides, troubleshooting tips, and training articles to help you get the most out of ReiSearch.</p>
-   128|   128|<div class="stats">
-   129|   129|<div class="sb"><svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg><div><div class="sn">79</div><div class="sl">Articles</div></div></div>
-   130|   130|<div class="sb"><svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><div><div class="sn">13</div><div class="sl">Categories</div></div></div>
-   131|   131|</div>
-   132|   132|<div class="sbox"><svg class="si2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg><span class="st">Search help articles...</span><button class="sb2">Search</button></div>
-   133|   133|</div></section>
-   134|   134|
-   135|   135|<div class="wrap"><div class="sh"><h2>Browse by category</h2><a href="/articles/getting-started/01-creating-account" class="sh-link">View all categories →</a></div>
-   136|   136|<div class="cg">
-   137|   137|
-   138|   138|<div class="cc">
-   139|   139|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15c-1 1-2 4-2 4s3-1 4-2"/><path d="M9 15 4 10l6-1 5-5c2-2 5-1 5-1s1 3-1 5l-5 5-1 6-4-4Z"/><path d="M15 9h.01"/></svg></div>
-   140|   140|<div class="ci"><a href="/getting-started" class="ct">Getting Started</a><p class="cd">New to ReiSearch? Start here.</p><div class="ccnt">7 articles</div></div></div>
-   141|   141|<div class="sep"></div>
-   142|   142|<ul class="al">
-   143|   143|<li><a href="/articles/getting-started/01-creating-account"><span class="as">Creating your ReiSearch account</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   144|   144|<li><a href="/articles/getting-started/02-dashboard-overview"><span class="as">Understanding your dashboard</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   145|   145|<li><a href="/articles/getting-started/03-completing-profile"><span class="as">Completing your profile</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   146|   146|<li><a href="/articles/getting-started/04-first-property"><span class="as">Your first property</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   147|   147|<li><a href="/articles/getting-started/05-how-to-run-comps"><span class="as">How to run comps</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   148|   148|<li><a href="/articles/getting-started/06-first-presentation"><span class="as">Your first presentation</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   149|   149|<li><a href="/articles/getting-started/07-inviting-team"><span class="as">Inviting team members</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   150|   150|</ul>
-   151|   151|<a href="/articles/getting-started/01-creating-account" class="va">View all <span>→</span></a>
-   152|   152|</div>
-   153|   153|
-   154|   154|<div class="cc">
-   155|   155|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L3 18l3 3 6.1-6.1a4 4 0 0 0 5.6-5.6"/><path d="M15 5l4 4"/><path d="M18 2l4 4"/></svg></div>
-   156|   156|<div class="ci"><a href="/troubleshooting" class="ct">Troubleshooting</a><p class="cd">Fix common issues and errors.</p><div class="ccnt">8 articles</div></div></div>
-   157|   157|<div class="sep"></div>
-   158|   158|<ul class="al">
-   159|   159|<li><a href="/articles/troubleshooting/01-cannot-run-a-comp"><span class="as">Cannot run a comp</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   160|   160|<li><a href="/articles/troubleshooting/02-out-of-tokens"><span class="as">Out of tokens</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   161|   161|<li><a href="/articles/troubleshooting/03-presentation-looks-wrong"><span class="as">Presentation looks wrong</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   162|   162|<li><a href="/articles/troubleshooting/04-buy-box-no-matches"><span class="as">Buy box no matches</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   163|   163|<li><a href="/articles/troubleshooting/06-login-password-mfa"><span class="as">Login, password, MFA</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   164|   164|<li><a href="/articles/troubleshooting/07-export-failed-partial-data"><span class="as">Export failed</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   165|   165|</ul>
-   166|   166|<a href="/articles/troubleshooting/01-cannot-run-a-comp" class="va">View all <span>→</span></a>
-   167|   167|</div>
-   168|   168|
-   169|   169|<div class="cc">
-   170|   170|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
-   171|   171|<div class="ci"><a href="/articles/settings/01-navigating-settings" class="ct">Account &amp; Settings</a><p class="cd">Manage your account and preferences.</p><div class="ccnt">5 articles</div></div></div>
-   172|   172|<div class="sep"></div>
-   173|   173|<ul class="al">
-   174|   174|<li><a href="/articles/settings/02-update-profile"><span class="as">Updating account information</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   175|   175|<li><a href="/articles/settings/04-notifications-preferences"><span class="as">Managing email preferences</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   176|   176|<li><a href="/articles/settings/03-account-security"><span class="as">Changing your password</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   177|   177|<li><a href="/articles/settings/05-teams-overview"><span class="as">User roles and permissions</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   178|   178|<li><a href="/articles/settings/01-navigating-settings"><span class="as">Two-factor authentication</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   179|   179|</ul>
-   180|   180|<a href="/articles/settings/01-navigating-settings" class="va">View all <span>→</span></a>
-   181|   181|</div>
-   182|   182|
-   183|   183|<div class="cc">
-   184|   184|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v11h14V10"/></svg></div>
-   185|   185|<div class="ci"><a href="/articles/property-workspace/01-add-new-property" class="ct">Property Workspace</a><p class="cd">Organize and manage properties.</p><div class="ccnt">5 articles</div></div></div>
-   186|   186|<div class="sep"></div>
-   187|   187|<ul class="al">
-   188|   188|<li><a href="/articles/property-workspace/01-add-new-property"><span class="as">Adding a new property</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   189|   189|<li><a href="/articles/property-workspace/01-add-new-property"><span class="as">Property details overview</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   190|   190|<li><a href="/articles/property-workspace/03-using-folders"><span class="as">Tags and custom fields</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   191|   191|<li><a href="/articles/property-workspace/04-property-actions-menu"><span class="as">Property reports</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   192|   192|<li><a href="/articles/property-workspace/02-property-statuses"><span class="as">Archiving or deleting properties</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   193|   193|</ul>
-   194|   194|<a href="/articles/property-workspace/01-add-new-property" class="va">View all <span>→</span></a>
-   195|   195|</div>
-   196|   196|
-   197|   197|<div class="cc">
-   198|   198|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h16"/><path d="M5 10l1-6h12l1 6"/><path d="M6 10v10h12V10"/><path d="M9 20v-5h6v5"/></svg></div>
-   199|   199|<div class="ci"><a href="/articles/marketplace/01-browse-marketplace" class="ct">Marketplace</a><p class="cd">Find and manage marketplace listings.</p><div class="ccnt">5 articles</div></div></div>
-   200|   200|<div class="sep"></div>
-   201|   201|<ul class="al">
-   202|   202|<li><a href="/articles/marketplace/01-browse-marketplace"><span class="as">Browsing marketplace listings</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   203|   203|<li><a href="/articles/marketplace/03-marketplace-filters"><span class="as">Filtering and saving searches</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   204|   204|<li><a href="/articles/marketplace/04-marketplace-listings-management"><span class="as">Contacting sellers</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   205|   205|<li><a href="/articles/marketplace/02-publish-to-marketplace"><span class="as">Making an offer</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   206|   206|<li><a href="/articles/marketplace/05-private-listings"><span class="as">Saved listings and alerts</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   207|   207|</ul>
-   208|   208|<a href="/articles/marketplace/01-browse-marketplace" class="va">View all <span>→</span></a>
-   209|   209|</div>
-   210|   210|
-   211|   211|<div class="cc">
-   212|   212|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-   213|   213|<div class="ci"><a href="/articles/app-center/01-what-is-app-center" class="ct">App Center</a><p class="cd">Connect and manage integrations.</p><div class="ccnt">7 articles</div></div></div>
-   214|   214|<div class="sep"></div>
-   215|   215|<ul class="al">
-   216|   216|<li><a href="/articles/app-center/01-what-is-app-center"><span class="as">Installing an app</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   217|   217|<li><a href="/articles/app-center/06-managing-integrations"><span class="as">Managing app connections</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   218|   218|<li><a href="/articles/app-center/02-crm-integrations"><span class="as">Popular integrations</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   219|   219|<li><a href="/articles/app-center/07-app-center-faqs"><span class="as">App permissions</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   220|   220|<li><a href="/articles/app-center/07-app-center-faqs"><span class="as">Troubleshooting apps</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   221|   221|</ul>
-   222|   222|<a href="/articles/app-center/01-what-is-app-center" class="va">View all <span>→</span></a>
-   223|   223|</div>
-   224|   224|
-   225|   225|<div class="cc">
-   226|   226|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
-   227|   227|<div class="ci"><a href="/articles/buy-boxes/01-create-buy-box" class="ct">Buy Boxes</a><p class="cd">Create and analyze buy boxes.</p><div class="ccnt">5 articles</div></div></div>
-   228|   228|<div class="sep"></div>
-   229|   229|<ul class="al">
-   230|   230|<li><a href="/articles/buy-boxes/01-create-buy-box"><span class="as">Creating a buy box</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   231|   231|<li><a href="/articles/buy-boxes/02-edit-manage-buy-box"><span class="as">Buy box analysis</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   232|   232|<li><a href="/articles/buy-boxes/03-buy-box-matching"><span class="as">Comparing buy boxes</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   233|   233|<li><a href="/articles/buy-boxes/05-buy-box-notifications"><span class="as">Exporting buy box reports</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   234|   234|<li><a href="/articles/buy-boxes/04-buy-box-matched-properties"><span class="as">Saving and sharing buy boxes</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   235|   235|</ul>
-   236|   236|<a href="/articles/buy-boxes/01-create-buy-box" class="va">View all <span>→</span></a>
-   237|   237|</div>
-   238|   238|
-   239|   239|<div class="cc">
-   240|   240|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg></div>
-   241|   241|<div class="ci"><a href="/articles/documents/01-upload-manage-documents" class="ct">Documents &amp; Images</a><p class="cd">Upload, organize, and manage files.</p><div class="ccnt">3 articles</div></div></div>
-   242|   242|<div class="sep"></div>
-   243|   243|<ul class="al">
-   244|   244|<li><a href="/articles/documents/01-upload-manage-documents"><span class="as">Uploading documents and images</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   245|   245|<li><a href="/articles/documents/02-property-photos"><span class="as">Organizing files</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   246|   246|<li><a href="/articles/documents/03-contracts-tool"><span class="as">Deleting or restoring files</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   247|   247|</ul>
-   248|   248|<a href="/articles/documents/01-upload-manage-documents" class="va">View all <span>→</span></a>
-   249|   249|</div>
-   250|   250|<div class="cc">
-   251|   251|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/></svg></div>
-   252|   252|<div class="ci"><a href="/articles/comps-analysis/01-how-to-run-comps" class="ct">Comps &amp; Analysis</a><p class="cd">Run comps, understand scores, and analyze deals.</p><div class="ccnt">14 articles</div></div></div>
-   253|   253|<div class="sep"></div>
-   254|   254|<ul class="al">
-   255|   255|<li><a href="/articles/comps-analysis/01-how-to-run-comps"><span class="as">How to Run Comps on ReiSearch</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   256|   256|<li><a href="/articles/comps-analysis/02-understanding-comps-score"><span class="as">Understanding the Comps Score</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   257|   257|<li><a href="/articles/comps-analysis/03-adjusting-comps-filters"><span class="as">Adjusting Comps Filters</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   258|   258|<li><a href="/articles/comps-and-analysis/01-how-ai-comps-work"><span class="as">How AI Comps Work</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   259|   259|<li><a href="/articles/comps-and-analysis/06-underwriting-tools"><span class="as">Underwriting Tools</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   260|   260|</ul>
-   261|   261|<a href="/articles/comps-analysis/01-how-to-run-comps" class="va">View all <span>→</span></a>
-   262|   262|</div>
-   263|   263|
-   264|   264|<div class="cc">
-   265|   265|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21a8 8 0 0 1 16 0"/><path d="M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg></div>
-   266|   266|<div class="ci"><a href="/articles/network/01-public-profile" class="ct">Network</a><p class="cd">Connect, collaborate, and grow your REI network.</p><div class="ccnt">7 articles</div></div></div>
-   267|   267|<div class="sep"></div>
-   268|   268|<ul class="al">
-   269|   269|<li><a href="/articles/network/01-public-profile"><span class="as">Public Profile</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   270|   270|<li><a href="/articles/network/02-connecting-with-people"><span class="as">Connecting with People</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   271|   271|<li><a href="/articles/network/03-property-threads"><span class="as">Property Threads</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   272|   272|<li><a href="/articles/network/05-ai-matchmaking"><span class="as">AI Matchmaking</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   273|   273|<li><a href="/articles/network/07-reidirectory"><span class="as">ReiDirectory</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   274|   274|</ul>
-   275|   275|<a href="/articles/network/01-public-profile" class="va">View all <span>→</span></a>
-   276|   276|</div>
-   277|   277|
-   278|   278|<div class="cc">
-   279|   279|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg></div>
-   280|   280|<div class="ci"><a href="/articles/presentations/01-generating-presentation" class="ct">Presentations</a><p class="cd">Create, share, and manage property presentations.</p><div class="ccnt">8 articles</div></div></div>
-   281|   281|<div class="sep"></div>
-   282|   282|<ul class="al">
-   283|   283|<li><a href="/articles/presentations/01-generating-presentation"><span class="as">Generating a Presentation</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   284|   284|<li><a href="/articles/presentations/02-presentation-templates"><span class="as">Presentation Templates</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   285|   285|<li><a href="/articles/presentations/04-sharing-presentation"><span class="as">Sharing a Presentation</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   286|   286|<li><a href="/articles/presentations/05-smart-buyer-lists"><span class="as">Smart Buyer Lists</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   287|   287|<li><a href="/articles/presentations/07-dispo-blowout"><span class="as">Dispo Blowout</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   288|   288|</ul>
-   289|   289|<a href="/articles/presentations/01-generating-presentation" class="va">View all <span>→</span></a>
-   290|   290|</div>
-   291|   291|
-   292|   292|<div class="cc">
-   293|   293|<div class="top"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-   294|   294|<div class="ci"><a href="/articles/tokens-billing/01-token-costs-reference" class="ct">Tokens &amp; Billing</a><p class="cd">Manage tokens, plans, and billing.</p><div class="ccnt">5 articles</div></div></div>
-   295|   295|<div class="sep"></div>
-   296|   296|<ul class="al">
-   297|   297|<li><a href="/articles/tokens-billing/01-token-costs-reference"><span class="as">Token Costs Reference</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   298|   298|<li><a href="/articles/tokens-billing/02-buying-token-bundles"><span class="as">Buying Token Bundles</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   299|   299|<li><a href="/articles/tokens-billing/03-premier-plus-plans"><span class="as">Premier Plus and Plans</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   300|   300|<li><a href="/articles/tokens-billing/04-earning-tokens"><span class="as">Earning Tokens</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   301|   301|<li><a href="/articles/tokens-billing/05-promo-discount-codes"><span class="as">Promo and Discount Codes</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
-   302|   302|</ul>
-   303|   303|<a href="/articles/tokens-billing/01-token-costs-reference" class="va">View all <span>→</span></a>
-   304|   304|</div>
-   305|   305|
-   306|   306|
-   307|   307|
-   308|   308|</div></div>
-   309|   309|
-   310|   310|<div class="wrap" style="padding-top:0"><div class="sh"><h2>Quick Start</h2></div>
-   311|   311|<div class="qg">
-   312|   312|<a href="/articles/getting-started/01-creating-account" class="qc"><div class="qiw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><div class="qi"><h3>Create your account</h3><p>Get started in minutes</p></div><svg class="qa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
-   313|   313|<a href="/articles/getting-started/02-dashboard-overview" class="qc"><div class="qiw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><div class="qi"><h3>Dashboard overview</h3><p>Explore key features</p></div><svg class="qa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
-   314|   314|<a href="/articles/getting-started/03-completing-profile" class="qc"><div class="qiw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><div class="qi"><h3>Complete your profile</h3><p>Add your information</p></div><svg class="qa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
-   315|   315|<a href="/articles/getting-started/05-how-to-run-comps" class="qc"><div class="qiw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/></svg></div><div class="qi"><h3>Run comps</h3><p>Analyze properties</p></div><svg class="qa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
-   316|   316|</div></div>
-   317|   317|
-   318|   318|<div class="wrap" style="padding-top:0"><div class="sh"><h2>Popular articles</h2><a href="/articles/getting-started/05-how-to-run-comps" class="sh-link">View all articles →</a></div>
-   319|   319|<div class="pg">
-   320|   320|<a href="/articles/getting-started/01-creating-account" class="pc"><div class="piw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg></div><h3>01 Creating Your ReiSearch Account</h3><p>Step-by-step guide to create your account.</p><span class="ptag">Getting Started</span></a>
-   321|   321|<a href="/articles/getting-started/02-dashboard-overview" class="pc"><div class="piw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg></div><h3>02 Dashboard Overview</h3><p>Get familiar with the dashboard and key features.</p><span class="ptag">Getting Started</span></a>
-   322|   322|<a href="/articles/troubleshooting/01-cannot-run-a-comp" class="pc"><div class="piw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg></div><h3>01 I Cannot Run a Comp</h3><p>Troubleshoot common comp run issues.</p><span class="ptag">Troubleshooting</span></a>
-   323|   323|<a href="/articles/app-center/03-ai-integrations" class="pc"><div class="piw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg></div><h3>03 Using AI Integrations</h3><p>Learn to use AI integrations to work smarter.</p><span class="ptag">App Center</span></a>
-   324|   324|<a href="/articles/getting-started/05-how-to-run-comps" class="pc"><div class="piw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg></div><h3>01 Run Comps</h3><p>Learn to run accurate comps in minutes.</p><span class="ptag">Comps &amp; Analysis</span></a>
-   325|   325|<a href="/articles/network/01-public-profile" class="pc"><div class="piw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg></div><h3>01 Public Profile</h3><p>Set up and customize your public profile.</p><span class="ptag">Account &amp; Settings</span></a>
-   326|   326|</div></div>
-   327|   327|
-   328|   328|<div class="bg">
-   329|   329|<div class="bc"><div class="bi"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13a8 8 0 0 1 16 0"/><path d="M4 13v4a2 2 0 0 0 2 2h1v-7H6a2 2 0 0 0-2 1Z"/><path d="M20 13v4a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 1Z"/><path d="M13 21h2a5 5 0 0 0 5-5"/></svg></div><div class="bct"><h2>Still need help?</h2><p>Our support team is here for you.</p><a href="mailto:support@reisearch.com" class="bp">Contact Support →</a></div></div></div>
-   330|   330|<div class="bc"><div class="bi"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></div><div class="bct"><h2>Watch video tutorials</h2><p>Visual walkthroughs to help you learn faster.</p><button class="bs">Explore Tutorials →</button></div><div class="bvp"><div class="bd"><s></s><s></s><s></s></div><div class="bvf"><div class="bpl"><svg viewBox="0 0 24 24" fill="#fff" stroke="none"><path d="m10 9 5 3-5 3V9Z"/></svg></div></div></div></div></div>
-   331|   331|</div>
-   332|   332|</body>
-   333|   333|</html>
-   334|   334|
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReiSearch Help Center</title>
+  <style>
+    :root {
+      --navy-950: #06142b;
+      --navy-900: #0b1f3f;
+      --blue-700: #0b5cff;
+      --blue-600: #1665f5;
+      --slate-950: #07162f;
+      --slate-700: #33415c;
+      --slate-600: #52617a;
+      --slate-500: #6f7b90;
+      --slate-200: #e5eaf1;
+      --slate-100: #f3f6fa;
+      --slate-50: #f8fafc;
+      --white: #ffffff;
+      --green: #12a66a;
+      --orange: #d88400;
+      --red: #dc3d54;
+      --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 18px 45px rgba(15, 23, 42, 0.10);
+      --radius-xl: 18px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--slate-50);
+      color: var(--slate-950);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+
+    .page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(22, 101, 245, 0.08), transparent 34rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 58%, #eef5ff 100%);
+    }
+
+    .topbar {
+      background: linear-gradient(90deg, #06142b 0%, #092040 48%, #06142b 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: white;
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      height: 86px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-wrap { display: flex; align-items: center; gap: 22px; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 23px;
+      font-weight: 850;
+      letter-spacing: 0.01em;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      background: linear-gradient(145deg, #145bff, #0b2c6f);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+    }
+
+    .logo-mark svg { width: 25px; height: 25px; }
+
+    .divider { width: 1px; height: 34px; background: rgba(255,255,255,0.18); }
+    .section-title { font-size: 20px; font-weight: 500; color: rgba(255,255,255,0.92); }
+
+    .app-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      color: white;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(6, 20, 43, 0.99) 0%, rgba(7, 27, 57, 0.95) 52%, rgba(7, 27, 57, 0.76) 100%),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80");
+      background-position: center right;
+      background-size: cover;
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity: 0.18;
+      mask-image: linear-gradient(90deg, black, transparent 34%);
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 66px 28px 50px;
+    }
+
+    .hero-content { max-width: 880px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.86);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      font-weight: 850;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      margin: 20px 0 0;
+      max-width: 760px;
+      font-size: 20px;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .search-shell {
+      margin-top: 32px;
+      max-width: 835px;
+      padding: 9px;
+      border-radius: 13px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 22px 58px rgba(0,0,0,0.22);
+    }
+
+    .search-row { display: flex; align-items: center; gap: 16px; min-height: 58px; }
+    .search-icon { width: 22px; height: 22px; margin-left: 14px; color: #60718e; flex: 0 0 auto; }
+
+    .search-row input {
+      flex: 1;
+      border: 0;
+      outline: 0;
+      color: var(--slate-950);
+      font-size: 17px;
+      background: transparent;
+      min-width: 0;
+    }
+
+    .search-row input::placeholder { color: #72809a; }
+
+    .search-button {
+      border: 0;
+      border-radius: 9px;
+      background: var(--blue-700);
+      color: white;
+      padding: 17px 32px;
+      font-weight: 850;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(11, 92, 255, 0.25);
+    }
+
+    .popular-searches {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.84);
+      font-size: 14px;
+    }
+
+    .pill {
+      padding: 9px 17px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      cursor: pointer;
+    }
+
+    .main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 28px 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 24px;
+    }
+
+    .content-stack, .sidebar { min-width: 0; }
+
+    .panel, .side-card {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .panel + .panel { margin-top: 18px; }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 24px 10px;
+      gap: 18px;
+    }
+
+    .panel-header h2, .side-card h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.025em;
+    }
+
+    .panel-header p {
+      margin: 6px 0 0;
+      color: var(--slate-600);
+      font-size: 14px;
+    }
+
+    .view-link { color: var(--blue-700); font-weight: 800; font-size: 14px; }
+
+    .popular-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding: 14px 22px 22px;
+    }
+
+    .action-card {
+      padding: 22px 20px 20px;
+      min-height: 260px;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      background: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.035);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .action-card:hover, .category-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(11, 92, 255, 0.24);
+    }
+
+    .icon-bubble, .category-icon {
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .icon-bubble { width: 72px; height: 72px; margin-bottom: 16px; }
+    .icon-bubble svg { width: 34px; height: 34px; }
+    .category-icon { width: 52px; height: 52px; }
+    .category-icon svg { width: 25px; height: 25px; }
+
+    .bubble-green { background: #dff8ee; color: #0ca167; }
+    .bubble-purple { background: #efe7ff; color: #7d4ee9; }
+    .bubble-blue { background: #e4efff; color: #1766d9; }
+    .bubble-yellow { background: #fff3d9; color: #d88400; }
+    .bubble-cyan { background: #dff9f7; color: #079790; }
+    .bubble-orange { background: #ffe9dc; color: #e36c12; }
+    .bubble-pink { background: #ffe3ef; color: #dc3d7a; }
+    .bubble-red { background: #ffe5e9; color: var(--red); }
+
+    .action-card h3 { margin: 0; font-size: 19px; letter-spacing: -0.02em; }
+
+    .action-card p {
+      margin: 10px 0 20px;
+      color: var(--slate-600);
+      font-size: 14px;
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .outline-button {
+      border: 1px solid var(--slate-200);
+      background: white;
+      color: var(--slate-950);
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      min-width: 154px;
+      justify-content: center;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+      padding: 14px 22px 22px;
+    }
+
+    .category-card {
+      min-height: 112px;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      background: white;
+      padding: 16px 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .category-copy { padding-right: 16px; }
+    .category-copy h3 { margin: 0 0 6px; font-size: 15px; letter-spacing: -0.01em; }
+    .category-copy p { margin: 0; color: var(--slate-600); font-size: 12.5px; line-height: 1.42; }
+    .chevron { position: absolute; right: 13px; width: 16px; height: 16px; color: #63718a; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 18px; }
+    .side-card { padding: 20px; }
+    .side-card h2 { margin-bottom: 16px; font-size: 20px; }
+
+    .support-option {
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      background: white;
+      padding: 18px 16px;
+      text-align: center;
+    }
+
+    .support-option + .support-option { margin-top: 18px; }
+    .support-option .icon-bubble { width: 56px; height: 56px; margin: 0 auto 12px; }
+    .support-option .icon-bubble svg { width: 26px; height: 26px; }
+    .support-option h3 { margin: 0; font-size: 17px; }
+
+    .support-option p {
+      margin: 8px auto 16px;
+      color: var(--slate-600);
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 230px;
+    }
+
+    .solid-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 9px;
+      color: white;
+      font-weight: 800;
+      padding: 12px 20px;
+      cursor: pointer;
+      min-width: 156px;
+    }
+
+    .solid-green { background: var(--green); box-shadow: 0 12px 26px rgba(18, 166, 106, 0.20); }
+    .solid-orange { background: var(--orange); box-shadow: 0 12px 26px rgba(216, 132, 0, 0.20); }
+    .solid-blue { background: var(--blue-700); box-shadow: 0 12px 26px rgba(11, 92, 255, 0.20); }
+    .microcopy { margin-top: 13px; color: var(--slate-600); font-size: 13px; }
+
+    .tips-list { display: grid; gap: 24px; padding: 8px 0 4px; }
+
+    .tip {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      color: var(--slate-700);
+      line-height: 1.45;
+      font-size: 15px;
+    }
+
+    .tip svg { width: 34px; height: 34px; color: var(--blue-700); flex: 0 0 auto; }
+
+    .footer {
+      margin-top: 40px;
+      background: linear-gradient(180deg, #edf5ff 0%, #f8fbff 100%);
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .footer-inner { max-width: 1180px; margin: 0 auto; padding: 32px 28px 28px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr 1fr 1.35fr;
+      gap: 28px;
+    }
+
+    .footer-brand { display: flex; align-items: center; gap: 10px; font-weight: 850; font-size: 19px; }
+    .footer-brand .logo-mark { width: 36px; height: 36px; border-radius: 10px; }
+    .footer-brand .logo-mark svg { width: 22px; height: 22px; }
+    .footer p { color: var(--slate-600); font-size: 14px; line-height: 1.55; }
+    .footer h4 { margin: 0 0 12px; font-size: 15px; letter-spacing: -0.01em; }
+    .footer a { display: block; color: #174ea6; font-size: 14px; margin-bottom: 10px; }
+
+    .subscribe { display: flex; gap: 8px; margin-top: 12px; }
+    .subscribe input { min-width: 0; flex: 1; border: 1px solid var(--slate-200); border-radius: 8px; padding: 12px 14px; background: white; }
+    .subscribe button { border: 0; border-radius: 8px; background: var(--blue-700); color: white; font-weight: 800; padding: 0 18px; cursor: pointer; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      margin-top: 26px;
+      padding-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--slate-600);
+      font-size: 13px;
+    }
+
+    .legal { display: flex; gap: 16px; }
+    .legal span + span::before { content: "|"; margin-right: 16px; color: #9aa6b8; }
+
+    @media (max-width: 980px) {
+      .main { grid-template-columns: 1fr; }
+      .sidebar { display: grid; grid-template-columns: 1fr 1fr; }
+      .popular-grid, .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      .topbar-inner { height: auto; padding: 18px; gap: 18px; align-items: flex-start; flex-direction: column; }
+      .brand-wrap { gap: 14px; }
+      .divider, .section-title { display: none; }
+      .hero-inner { padding: 42px 20px 36px; }
+      .hero p { font-size: 17px; }
+      .search-row { align-items: stretch; flex-direction: column; gap: 0; }
+      .search-icon { display: none; }
+      .search-row input { width: 100%; padding: 15px 12px; }
+      .search-button { width: 100%; }
+      .main { padding: 22px 18px 0; }
+      .popular-grid, .category-grid, .sidebar { grid-template-columns: 1fr; }
+      .panel-header { align-items: flex-start; flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .subscribe { flex-direction: column; }
+      .subscribe button { padding: 12px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand-wrap">
+          <div class="brand">
+            <div class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.2 12 5l8 7.2" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.3 11.1V20h9.4v-5.2h-3.4" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            REISEARCH
+          </div>
+          <div class="divider"></div>
+          <div class="section-title">Help Center</div>
+        </div>
+        <a class="app-button" href="https://reisearch.com">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 14v4.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13A1.5 1.5 0 0 1 5.5 4H10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Go to ReiSearch App
+        </a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="eyebrow">ReiSearch support, guides, and product workflows</div>
+          <h1>How can we help you move your next deal forward?</h1>
+          <p>Find answers for properties, AI Comps, buyers, presentations, tokens, and the workflows that help you analyze and move deals faster.</p>
+          <form class="search-shell">
+            <div class="search-row">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none"><path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <input type="search" placeholder="Search comps, properties, tokens, presentations, buyers, or support tickets..." />
+              <button class="search-button" type="submit">Search</button>
+            </div>
+          </form>
+          <div class="popular-searches">
+            <span>Popular searches:</span>
+            <a class="pill" href="/articles/comps-and-analysis/01-how-ai-comps-work">AI Comps</a>
+            <a class="pill" href="/articles/property-workspace/01-add-new-property">Add a Property</a>
+            <a class="pill" href="/articles/presentations/01-generating-presentation">Create a Presentation</a>
+            <a class="pill" href="/articles/buy-boxes/03-buy-box-matching">Find Buyers</a>
+            <a class="pill" href="/articles/tokens-billing/01-token-costs-reference">Tokens</a>
+            <a class="pill" href="/articles/presentations/07-dispo-blowout">Offer Accelerator</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="main">
+      <div class="content-stack">
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Popular things to do</h2>
+              <p>Start with the workflows users need most often.</p>
+            </div>
+          </div>
+          <div class="popular-grid">
+            <article class="action-card">
+              <div class="icon-bubble bubble-green"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.8 10.5V20h10.4v-6h-3.8v6" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <h3>Analyze a Property</h3>
+              <p>Run AI Comps, review market data, and understand the deal before you spend time underwriting it.</p>
+              <a class="outline-button" href="/articles/property-workspace/01-add-new-property">Start analysis <span>›</span></a>
+            </article>
+            <article class="action-card">
+              <div class="icon-bubble bubble-purple"><svg viewBox="0 0 24 24" fill="none"><path d="M6 20V10M12 20V5M18 20v-8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+              <h3>Generate AI Comps</h3>
+              <p>Find comparable properties, review your comp history, and understand what the data means.</p>
+              <a class="outline-button" href="/articles/comps-and-analysis/01-how-ai-comps-work">Learn how <span>›</span></a>
+            </article>
+            <article class="action-card">
+              <div class="icon-bubble bubble-blue"><svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10a2 2 0 0 1 2 2v14H5V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2.2"/><path d="M8.5 9h4M8.5 13h7M8.5 17h7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+              <h3>Build a Buyer Presentation</h3>
+              <p>Turn property data into a clean presentation for buyers, partners, lenders, or investors.</p>
+              <a class="outline-button" href="/articles/presentations/01-generating-presentation">Build deck <span>›</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Browse by category</h2>
+              <p>Find help by the part of ReiSearch you are using.</p>
+            </div>
+            <a class="view-link" href="/articles/getting-started/01-creating-account">View all topics</a>
+          </div>
+          <div class="category-grid">
+            <a class="category-card" href="/articles/getting-started/01-creating-account"><div class="category-icon bubble-green"><svg viewBox="0 0 24 24" fill="none"><path d="M5 19c4.5-.7 7.8-3.3 9.8-7.9L19 6l-5.1 4.2C9.3 12.2 6.7 15.5 6 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="category-copy"><h3>Getting Started</h3><p>Onboarding, first steps, and account setup.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/settings/01-navigating-settings"><div class="category-icon bubble-blue"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Account & Login</h3><p>Profile, password, email, and preferences.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/tokens-billing/01-token-costs-reference"><div class="category-icon bubble-green"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v12H4z" stroke="currentColor" stroke-width="2"/><path d="M7 11h4M7 15h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Billing & Tokens</h3><p>Plans, token usage, wallet, and payments.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/property-workspace/01-add-new-property"><div class="category-icon bubble-purple"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M7 11v9h10v-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Properties</h3><p>Add, edit, organize, and share property records.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/comps-and-analysis/01-how-ai-comps-work"><div class="category-icon bubble-cyan"><svg viewBox="0 0 24 24" fill="none"><path d="M6 19v-5M12 19V8M18 19V5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>AI Comps</h3><p>Generate, refresh, pin, and review comp runs.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/comps-and-analysis/04-demographics-market-data"><div class="category-icon bubble-orange"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v9h9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-9-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Market Data</h3><p>Demographics, rents, trends, and market context.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/comps-and-analysis/06-underwriting-tools"><div class="category-icon bubble-blue"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h12v18H6z" stroke="currentColor" stroke-width="2"/><path d="M9 8h6M9 12h6M9 16h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Underwriting</h3><p>Financial modeling, deal structure, and assumptions.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/presentations/07-dispo-blowout"><div class="category-icon bubble-red"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="category-copy"><h3>Offer Accelerator</h3><p>Prepare offers, presentations, and buyer-facing materials.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/buy-boxes/03-buy-box-matching"><div class="category-icon bubble-pink"><svg viewBox="0 0 24 24" fill="none"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 20a5 5 0 0 1 10 0M11 20a5 5 0 0 1 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Buyers & Dispositions</h3><p>Buyer lists, buy boxes, matching, and offers.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/presentations/01-generating-presentation"><div class="category-icon bubble-purple"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v10H5z" stroke="currentColor" stroke-width="2"/><path d="M8 19h8M12 15v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Presentations</h3><p>Property decks, sharing links, and buyer packages.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/property-workspace/02-property-statuses"><div class="category-icon bubble-green"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="2"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>CRM / Pipeline</h3><p>Track properties, buyers, offers, and follow-up.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/network/03-property-threads"><div class="category-icon bubble-blue"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Messaging</h3><p>Direct messages and buyer communication.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/app-center/01-what-is-app-center"><div class="category-icon bubble-orange"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5zM13 13h6v6h-6z" stroke="currentColor" stroke-width="2"/></svg></div><div class="category-copy"><h3>App Center</h3><p>Connected tools, extensions, and platform add-ons.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/troubleshooting/05-cannot-find-property"><div class="category-icon bubble-yellow"><svg viewBox="0 0 24 24" fill="none"><path d="M18 9a6 6 0 1 0-12 0c0 7-3 7-3 7h18s-3 0-3-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 20a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Alerts & Notifications</h3><p>Deal monitor, in-app alerts, and update settings.</p></div><span class="chevron">›</span></a>
+            <a class="category-card" href="/articles/troubleshooting/01-cannot-run-a-comp"><div class="category-icon bubble-pink"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM9.5 9a2.5 2.5 0 1 1 4.4 1.6c-.9.7-1.9 1.3-1.9 2.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 17h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div><div class="category-copy"><h3>Troubleshooting</h3><p>Fix errors, stuck workflows, and common issues.</p></div><span class="chevron">›</span></a>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <section class="side-card">
+          <h2>Need more help?</h2>
+          <div class="support-option">
+            <div class="icon-bubble bubble-green"><svg viewBox="0 0 24 24" fill="none"><path d="M5 6h14v10H8l-3 3V6Z" fill="currentColor"/><path d="M9 11h.01M12 11h.01M15 11h.01" stroke="white" stroke-width="2.3" stroke-linecap="round"/></svg></div>
+            <h3>Live Chat</h3>
+            <p>Get a quick answer from the ReiSearch team.</p>
+            <a class="solid-button solid-green" href="/articles/troubleshooting/08-contacting-support">Start chat</a>
+            <div class="microcopy">Best for urgent workflow questions</div>
+          </div>
+          <div class="support-option">
+            <div class="icon-bubble bubble-yellow"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5 9.5 4 20 14.5 14.5 20 4 9.5Z" fill="currentColor"/><path d="M10 9h4M10 13h2" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Create a Support Ticket</h3>
+            <p>Submit an issue and track the follow-up.</p>
+            <a class="solid-button solid-orange" href="/articles/troubleshooting/08-contacting-support">Create ticket</a>
+            <div class="microcopy">Best for account, billing, or bugs</div>
+          </div>
+          <div class="support-option">
+            <div class="icon-bubble bubble-blue"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+            <h3>Request a Feature</h3>
+            <p>Tell us what would make ReiSearch more useful in your workflow.</p>
+            <a class="solid-button solid-blue" href="https://reisearch.com/contact">Submit idea</a>
+            <div class="microcopy">Product feedback goes to the team</div>
+          </div>
+        </section>
+
+        <section class="side-card">
+          <h2>Help Center tips</h2>
+          <div class="tips-list">
+            <div class="tip"><svg viewBox="0 0 24 24" fill="none"><path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Search by workflow: AI Comps, Add Property, Presentation, Buyers, Tokens.</span></div>
+            <div class="tip"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z" stroke="currentColor" stroke-width="2.2"/><path d="M4 5.5A2.5 2.5 0 0 1 6.5 8H20" stroke="currentColor" stroke-width="2.2"/></svg><span>Browse by category when you know the ReiSearch area but not the exact article.</span></div>
+            <div class="tip"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Use Live Chat for quick answers. Use tickets for bugs, billing, and account issues.</span></div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.2 12 5l8 7.2" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.3 11.1V20h9.4v-5.2h-3.4" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>REISEARCH</div>
+            <p>The real estate investor's all-in-one platform for analyzing properties, building buyer packages, and moving deals forward.</p>
+          </div>
+          <div><h4>Popular resources</h4><a href="/articles/getting-started/01-creating-account">Getting started guide</a><a href="/articles/comps-and-analysis/01-how-ai-comps-work">AI Comps guide</a><a href="/articles/tokens-billing/01-token-costs-reference">Token usage</a></div>
+          <div><h4>Workflows</h4><a href="/articles/property-workspace/01-add-new-property">Analyze a property</a><a href="/articles/presentations/01-generating-presentation">Create a presentation</a><a href="/articles/buy-boxes/03-buy-box-matching">Find buyers</a></div>
+          <div><h4>Company</h4><a href="https://reisearch.com/about">About us</a><a href="https://reisearch.com/blog">ReiSearch Blog</a><a href="https://reisearch.com/contact">Contact us</a></div>
+          <div><h4>Stay in the loop</h4><p>Get product updates and helpful tips delivered to your inbox.</p><form class="subscribe"><input type="email" placeholder="Enter your email" /><button type="submit">Subscribe</button></form></div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 ReiSearch. All rights reserved.</span><div class="legal"><span>Terms of Service</span><span>Privacy Policy</span></div></div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
